@@ -1,0 +1,91 @@
+﻿@using Microsoft.AspNetCore.Hosting
+@using Microsoft.Extensions.Hosting
+@inject IWebHostEnvironment Env
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @if (!User.Identity.IsAuthenticated && !Env.IsDevelopment())
+    {
+        <!-- Insert Google Analytics here -->
+    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abond Apec Group</title>
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/all.min.css">
+    <link rel="stylesheet" href="~/assets/css/slick.css">
+    <link rel="stylesheet" href="~/assets/css/responsive-menu.css">
+    <link rel="stylesheet" href="~/assets/css/common.css">
+    @*<title>@ViewBag.Title</title>*@
+
+
+    @if (Model is Piranha.Models.IMeta)
+    {
+        <partial name="Partial/_Meta.cshtml" />
+    }   
+
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <div id="wrapper">
+        <header id="header">
+            <partial name="Partial/_Menu.cshtml" />
+        </header>
+
+
+        <section id="home_content">
+            @RenderBody()
+        </section>
+
+
+        <footer id="footer" class="fw">
+            <div class="container">
+                <div class="row mar0">
+                    <div class="col-xs-12 col-sm-12 col-md-6 footer_logo">
+                        <div>
+                            <h1>
+                                <a href="index.html">
+                                    <img src="~/assets/images/Logo-footer.png" class="img-fluid"
+                                         alt="Abond">
+                                </a>
+                            </h1>
+                            <p><i class="fas fa-home"></i> Tầng 3 Grand Plaza, 117 Trần Duy Hưng, Cầu Giấy, Hà Nội </p>
+                            <p><i class="fas fa-paper-plane"></i> bondservice@apec.com.vn</p>
+                            <p><i class="fas fa-phone-alt"></i> 0963.513.355</p>
+                            <p>
+                                <i class="fab fa-facebook-f"></i> <i class="fab fa-twitter"></i> <i class="fab fa-youtube"></i></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 footer_contact">
+
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.618254685085!2d105.79505031423427!3d21.007934193866436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad511f95d995%3A0xbb7cbb82305554ed!2zQ8O0bmcgdHkgY-G7lSBwaOG6p24gxJHhuqd1IHTGsCBDaMOidSDDgSBUaMOhaSBCw6xuaCBExrDGoW5n!5e0!3m2!1svi!2s!4v1589964581923!5m2!1svi!2s"
+                                width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen=""
+                                aria-hidden="false" tabindex="0"></iframe>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row mar0 copyright">
+                <div class="container">
+                    <p>Bản quyền © 2020 thuộc về Abond | Giữ toàn quyền</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="~/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/all.min.js"></script>
+    <script src="~/assets/js/slick.min.js"></script>
+    <script src="~/assets/js/responsive-menu.js"></script>
+    <script src="~/Login/js/jquery.cookie.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Login/js/AuthServices.js"></script>
+    <script src="~/assets/js/js.js"></script>
+</body>
+</html>

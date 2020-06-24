@@ -1,0 +1,175 @@
+﻿<div id="header_info">
+    <div class="container">
+        <div class="row mar0">
+            <div class="col-12 col-lg-8 fw">
+                <ul id="header_contact" class="fw">
+                    <li><i class="far fa-clock"></i> <span id="datetime-barner">13:00 - Thứ 6, 13/03/2020</span></li>
+                    <li><i class="fas fa-phone-alt"></i> <span>0963.513.355</span></li>
+                    <li><i class="fas fa-paper-plane"></i> <span>bondservice@apec.com.vn</span></li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-4 fw">
+                <ul id="header_login" class="fw headerLog">
+                    <li><a href="/login">Đăng nhập</a></li>
+                    <li><a href="/register">Đăng ký</a></li>
+                    <li class="search_mb">
+                        <i class="fas fa-search" id="search_icon"></i>
+                        <form action="">
+                            <input type="text" class="form-control" id="search" name="search"
+                                   placeholder="Tìm kiếm">
+                        </form>
+                    </li>
+                </ul>
+                <div id="userLogin" class="userLogin">
+                    <span>Xin chào, </span>
+                    <span id="userName"></span>&ensp;
+                    <a href="#" id="logOut">Thoát</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="header_menu_mb">
+    <nav>
+        <div class="menu-toggle">
+            <div class="container">
+                <a href="@WebApp.Site.Sitemap[0].Permalink">
+                    <img class="img-fluid" src="~/assets/images/Logo-footer.png" alt="">
+                </a>
+                <button type="button" id="menu-btn">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+        </div>
+
+        <ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
+            <li>
+                <a href="index.html">
+                    <span class="title">Trang chủ</span>
+                </a>
+            </li>
+            <li>
+                <a href="gioithieu.html">
+                    <span class="title">Giới thiệu</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="doanhnghiep.html">
+                    <span class="title">Doanh nghiệp</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="doanhnghiep.html">Doanh nghiệp 1</a>
+                    </li>
+                    <li>
+                        <a href="doanhnghiep.html">Doanh nghiệp 2</a>
+                    </li>
+                    <li>
+                        <a href="doanhnghiep.html">Doanh nghiệp 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="" href="traiphieu.html">
+                    <span class="title">Trái phiếu</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="doanhnghiep.html">Trái phiếu 1</a>
+                    </li>
+                    <li>
+                        <a href="doanhnghiep.html">Trái phiếu 2</a>
+                    </li>
+                    <li>
+                        <a href="doanhnghiep.html">Trái phiếu 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="tintuc.html">
+                    <span class="title">Tin tức</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="doanhnghiep.html">Tin tức 1</a>
+                    </li>
+                    <li>
+                        <a href="doanhnghiep.html">Tin tức 2</a>
+                    </li>
+                    <li>
+                        <a href="doanhnghiep.html">Tin tức 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="hotro.html">
+                    <span class="title">Hỗ trợ</span>
+                </a>
+            </li>
+            <li>
+                <a href="tailieu.html">
+                    <span class="title">Tài liệu pháp lý</span>
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+</div>
+
+<div id="header_menu" class="row mar0">
+    <div class="container">
+        <div class="col-lg-4 fw">
+            <a href="@WebApp.Site.Sitemap[0].Permalink">
+                <img src="~/assets/images/logo.png" class="img-fluid" alt="Abond"
+                     title="Abond">
+            </a>
+        </div>
+        <div class="col-lg-8 fw">
+            <ul id="menu" class="fw">
+                @for (int i = 0; i < WebApp.Site.Sitemap.Count; i++)
+                {
+                    if (!(WebApp.Site.Sitemap[i]).IsHidden)
+                    {
+                        <li>
+                            @if ((WebApp.Site.Sitemap[i]).Items.Any())
+                            {
+                                <a href="@(WebApp.Site.Sitemap[i].Permalink)">@(WebApp.Site.Sitemap[i].MenuTitle)</a>
+                                <ul class="submenu fw sub2">
+                                    @foreach (var submenu in WebApp.Site.Sitemap[i].Items)
+                                    {
+                                    <li>
+                                        <i class="fas fa-long-arrow-alt-right"></i>
+                                        <a href="@submenu.Permalink">@submenu.MenuTitle</a>
+                                    </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <a href="@(WebApp.Site.Sitemap[i].Permalink)">@(WebApp.Site.Sitemap[i].MenuTitle)</a>
+                            }
+                        </li>
+                    }
+                }
+                <li><i class="fas fa-search search"></i></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+@*<ul class="justify-content-center navbar-nav mr-auto">
+
+        @foreach (var item in WebApp.Site.Sitemap)
+        {
+            if (!item.IsHidden)
+            {
+                <li class="nav-item @(item.Id == WebApp.PageId || item.HasChild(WebApp.PageId) ? "active" : "")">
+                    <a class="nav-link" href="@item.Permalink">@item.MenuTitle</a>
+                </li>
+            }
+        }
+    </ul>*@

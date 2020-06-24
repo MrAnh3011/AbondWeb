@@ -1,0 +1,123 @@
+﻿@model MvcWeb.Models.BondsPage
+@{
+    ViewData["Title"] = "BondsPage";
+}
+
+<div id="page_title" class="fw">
+    <img class="img-fluid" src="@(Model.BondBanner.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt="">
+    <h2 class="page_title">@Model.BondBanner.Title</h2>
+</div>
+
+<section id="content" class="fw">
+    <section id="page_bonds">
+        <div class="container">
+            <div class="row mar0">
+                <div class="col-12 col-sm-4 col-lg-4 aside">
+                    <div class="page_bonds_list">
+                        <h5>Trái phiếu phân phối</h5>
+                        <ul>
+                            @foreach (var item in Model.LstBond)
+                            {
+                                <li><a href="@item.Page.Permalink"><i class="fas fa-arrow-right"></i>@item.Page.Title</a></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="download fw">
+                        @foreach (var item in Model.BondDoc)
+                        {
+                            <div class="download_grid fw">
+                                <a class="fw" href="@(item.DocFile.Media.PublicUrl.Substring(1)??"")">
+                                    <h5>@item.DocTitle<i class="far fa-file-pdf"></i></h5>
+                                    <p>@item.DocDescribe</p>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                    <div class="help fw">
+                        <h6>Cần trợ giúp?</h6>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae exercitationem
+                            iusto tempore dicta quia rem aliquam, id dignissimos minus inventore!
+                        </p>
+                        <p><i class="fas fa-paper-plane"></i> bondservice@apec.com.vn</p>
+                        <p><i class="fas fa-phone-alt"></i> 0963.513.355</p>
+                    </div>
+                    <div class="register fw">
+                        <h5>Nhận thông tin</h5>
+                        <form action="">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Họ tên">
+
+                            <input type="text" class="form-control" name="phone" id="phone"
+                                   placeholder="Điện thoại">
+
+                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+
+                            <textarea class="form-control" name="message" id="message"
+                                      placeholder="Nội dung"></textarea>
+
+                            <button type="submit" class="btn btn-warning">Gửi đi</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-8 col-lg-8 main_content">
+                    <div class="bonds_intro">
+                        <h2 class="bonds_name">@Model.BondIntro.Title</h2>
+                        <p class="bonds_excerpt">
+                            @Model.BondIntro.SubTitle
+                        </p>
+                    </div>
+                    <p>
+                        @Html.Raw(Model.BondIntro.Body)
+                    </p>
+
+                    <div id="benefit" class="benefit">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="commitment">
+                                    <h5>@Model.BondBenefit.Title1</h5>
+                                    <ul>
+                                        @Html.Raw(Model.BondBenefit.Body1)
+                                    </ul>
+                                </div>
+                                <div class="commitment">
+                                    <h5>@Model.BondBenefit.Title2</h5>
+                                    <ul>
+                                        @Html.Raw(Model.BondBenefit.Body2)
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <img class="img-fluid" src="@(Model.BondBenefit.Picture.Media.PublicUrl.Substring(1)??"")" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interest">
+                        <img class="img-fluid" src="assets/images/interest.png" alt="">
+                    </div>
+                    <div class="example">
+                        <h5>Ví dụ</h5>
+                        @Html.Raw(Model.Example)
+                    </div>
+
+                    <div class="bonds_how">
+                        <h5>Đầu tư trái phiếu bằng cách nào?</h5>
+                        @for (int i = 0; i < Model.lstGuide.Count; i++)
+                        {
+                            <div class="row bonds_step">
+                                <div class="col-lg-6">
+                                    <img class="img-fluid" src="@(Model.lstGuide[i].Icon.Media.PublicUrl.Substring(1)??"")"
+                                         alt="">
+                                </div>
+                                <div class="col-lg-6 bonds_step_1">
+                                    <h6>Cách @(i+1)</h6>
+                                    @Html.Raw(Model.lstGuide[i].Body)
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

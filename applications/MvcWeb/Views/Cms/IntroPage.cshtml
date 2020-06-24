@@ -1,0 +1,102 @@
+﻿@model MvcWeb.Models.IntroPage
+@{
+    ViewData["Title"] = "IntroPage";
+}
+
+<div id="page_title" class="fw">
+    <img class="img-fluid" src="@(Model.BarnerIntro.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt="">
+    <h2 class="page_title">@Model.BarnerIntro.Title</h2>
+</div>
+
+<section id="content">
+    <section id="company" class="fw">
+        <div class="container">
+            <div class="row company_intro">
+                <div class="col-lg-6 company_intro_name">
+                    <h2 class="company_name">@Model.IntroBody.Title</h2>
+                </div>
+                <div class="col-lg-6 company_intro_text">
+                    @Html.Raw(Model.IntroBody.Body)
+                </div>
+            </div>
+            <div id="mobilized">
+                <div class="row mobilized_content">
+                    @foreach (var item in Model.WeDo)
+                    {
+                        <div class="col-lg-3 mobilized_content_grid">
+                            <h2>@item.Title</h2>
+                            <p>@item.Describes</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="abond" class="fw">
+        <img class="img-fluid" src="@(Model.ImageInteractive.Media.PublicUrl.Substring(1)??"")" alt="">
+    </section>
+
+    <section id="manager" class="fw">
+        <div class="container">
+            <div class="section_title">
+                <h2>Ban lãnh đạo</h2>
+                <span class="line"></span>
+            </div>
+            <div class="row mar0">
+                @foreach (var item in Model.Leader)
+                {
+                    <div class="col-12 col-sm-6 col-lg-4 manager_item">
+                        <div class="manager_item_img">
+                            <img class="img-fluid" src="@(item.Avatar.Media.PublicUrl.Substring(1)??"")" alt="">
+                        </div>
+                        <div class="manager_item_text">
+                            <h5>@item.Name</h5>
+                            <p>@item.Title</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="value" class="fw">
+        <div class="container">
+            <div class="section_title">
+                <h2>Giá trị cốt lõi</h2>
+                <span class="line"></span>
+            </div>
+            <div class="row mar0">
+                @foreach (var item in Model.CoreValue)
+                {
+                    <div class="col-12 col-lg-4 row intro">
+                        <div class="col-2 col-lg-2">
+                            <img src="@(item.Icon.Media.PublicUrl.Substring(1) ?? "")" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-10 col-lg-10 intro_info">
+                            <h5>@item.Title</h5>
+                            <p>
+                                @Html.Raw(item.Body)
+                            </p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="activity" class="fw">
+        <div class="section_title">
+            <h2>Hoạt động thực tế</h2>
+            <span class="line"></span>
+        </div>
+        <div class="activity">
+            @foreach (var item in Model.RealDo)
+            {
+                <div class="item">
+                    <img class="img-fluid" src="@(item.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt="">
+                </div>
+            }
+        </div>
+    </section>
+</section>

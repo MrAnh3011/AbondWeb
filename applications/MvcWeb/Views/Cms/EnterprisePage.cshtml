@@ -1,0 +1,47 @@
+﻿@model MvcWeb.Models.EnterprisePage
+@{
+    ViewData["Title"] = "EnterprisePage";
+}
+
+<div id="page_title" class="fw">
+    <img class="img-fluid" src="@(Model.BarnerIntro.ImageBanner.Media.PublicUrl.Substring(1)?? "")" alt="">
+    <h2 class="page_title">@Model.BarnerIntro.Title</h2>
+</div>
+
+<section id="content">
+    <section id="enterprise" class="fw">
+        <div class="container">
+            @foreach (var item in Model.Company)
+            {
+                <div class="row enterprise_row">
+                    <div class="col-12 col-lg-6 enterprise_info">
+                        <h2 class="enterprise_title">@item.Title</h2>
+                        <div class="row enterprise_detail">
+                            <div class="col-4 col-lg-4 pad0">
+                                <h6>Hoàn thành</h6>
+                                <span>@item.CompletedYear</span>
+                            </div>
+                            <div class="col-4 col-lg-4 pad0">
+                                <h6>Vị trí</h6>
+                                <span>@item.Location</span>
+                            </div>
+                            <div class="col-4 col-lg-4 pad0">
+                                <h6>Tiến độ</h6>
+                                <span>@item.Progress</span>
+                            </div>
+                        </div>
+                        <div class="row enterprise_excerpt">
+                            <p>
+                                @Html.Raw(item.Body)
+                            </p>
+                        </div>
+                        <a href="@item.Link.Value" class="link">@item.TitleLink</a>
+                    </div>
+                    <div class="col-12 col-lg-6 enterprise_img">
+                        <img class="img-fluid" src="@(item.Image.Media.PublicUrl.Substring(1)??"")" alt="">
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+</section>

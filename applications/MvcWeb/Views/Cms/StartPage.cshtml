@@ -1,0 +1,367 @@
+﻿@model MvcWeb.Models.TeaserPage
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div id="slide" class="fw">
+    @{
+        foreach (var item in Model.SlidePictureTop)
+        {
+            <div class="item">
+                <img class="img-fluid" src="@(item.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
+                <div class="slide_caption">
+                    <div class="container">
+                        <div class="pad15">
+                            <h3>@item.TopTitle</h3>
+                            <h2>@item.BigTitle</h2>
+                            <p>
+                                @Html.Raw(item.Body)
+                            </p>
+                            <a class="link" href="@item.Link.Value">@item.TitleLink</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<section id="home_content">
+    <section id="intro" class="fw">
+        <div class="row mar0">
+            <div class="col-lg-4 row intro estate">
+                <div class="col-2 col-lg-2"><img src="assets/images/intro1.png" class="img-fluid" alt=""></div>
+                <div class="col-10 col-lg-10 intro_info">
+                    <h3>Tích lũy tài sản</h3>
+                    <p>Lãi suất cạnh tranh</p>
+                    <p>Dòng tiền trả lãi ổn định</p>
+                    <p>Sức mạnh lãi suất kép</p>
+                </div>
+            </div>
+            <div class="col-lg-4 row intro invest">
+                <div class="col-2 col-lg-2"><img src="assets/images/intro2.png" class="img-fluid" alt=""></div>
+                <div class="col-10 col-lg-10 intro_info">
+                    <h3>Đầu tư linh hoạt</h3>
+                    <p>Sản phẩm trái phiếu an toàn với cam kết và bảo lãnh mua lại gốc tại bất kỳ thời điểm</p>
+                </div>
+            </div>
+            <div class="col-lg-4 row intro brand">
+                <div class="col-2 col-lg-2"><img src="assets/images/intro3.png" class="img-fluid" alt=""></div>
+                <div class="col-10 col-lg-10 intro_info">
+                    <h3>Thương hiệu uy tín</h3>
+                    <p>
+                        Trái phiếu do Doanh nghiệp đạt chuẩn điều kiện niêm yết phát hành và được Abond thẩm định
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why" class="fw">
+        <div class="container">
+            <h2 class="text-center"><img class="img-fluid" src="assets/images/why.jpg" alt=""></h2>
+            <div class="section_title">
+                <h2>Tại sao lựa chọn kênh đầu tư trái phiếu?</h2>
+                <span class="line"></span>
+            </div>
+            <div class="row mar0">
+                <div class="col-12 col-md-3 col-lg-3 why_grid">
+                    <img class="img-fluid" src="assets/images/safe.png" alt="">
+                    <h5>An toàn và ổn định</h5>
+                </div>
+                <div class="col-12 col-md-3 col-lg-3 why_grid">
+                    <img class="img-fluid" src="assets/images/cate.png" alt="">
+                    <h5>Đa dạng hóa danh mục</h5>
+                </div>
+                <div class="col-12 col-md-3 col-lg-3 why_grid">
+                    <img class="img-fluid" src="assets/images/period.png" alt="">
+                    <h5>Kỳ hạn linh hoạt</h5>
+                </div>
+                <div class="col-12 col-md-3 col-lg-3 why_grid">
+                    <img class="img-fluid" src="assets/images/interest_rate.png" alt="">
+                    <h5>Lãi suất vượt trội</h5>
+                </div>
+                <div class="col-12 col-md-3 col-lg-3 why_grid">
+                    <img class="img-fluid" src="assets/images/tendency.png" alt="">
+                    <h5>Xu hướng thị trường</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why_choose" class="fw">
+        <div class="why_choose fw">
+            <div class="row why_choose_row_top">
+                <div class="col-12 col-sm-6 col-lg-6 why_choose_left">
+                    <img class="img-fluid" src="@(Model.DoYouKnow1.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
+                </div>
+                <div class="col-12 col-sm-6 col-lg-6 why_choose_right">
+                    <h6>@Model.DoYouKnow1.HeaderTitle</h6>
+                    <h2>@Model.DoYouKnow1.Title</h2>
+                    <p>
+                        @Html.Raw(Model.DoYouKnow1.Body)
+                    </p>
+
+                    <a href="@Model.DoYouKnow1.Link1.Value" class="link">@Model.DoYouKnow1.TitleLink1</a>
+                </div>
+            </div>
+            <div class="row why_choose_row_bot">
+                <div class="col-12 col-sm-6 col-lg-6 why_choose_left">
+                    <h2>@Model.DoYouKnow2.Title</h2>
+                    <ul>
+                        @Html.Raw(@Model.DoYouKnow2.Body)
+                    </ul>
+                    <a href="@Model.DoYouKnow2.Link1.Value" class="link">@Model.DoYouKnow2.TitleLink1</a>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-6 why_choose_right">
+                    <img class="img-fluid" src="@(Model.DoYouKnow2.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="bonds" class="fw">
+        <div class="container">
+            <div class="section_title">
+                <h2>Trái phiếu chào bán</h2>
+                <span class="line"></span>
+            </div>
+            <div class="row mar0 bonds_row">
+                <div class="col-12 col-md-6 col-lg-4 bonds_grid">
+                    <div class="bonds_grid_img">
+                        <img class="img-fluid" src="assets/images/bonds.jpg" style="width: 100%;" alt="">
+                        <a href="#" class="readmore">Nhận thông tin <i class="fas fa-caret-right"></i></a>
+                    </div>
+                    <div class="bonds_grid_content">
+                        <div class="bonds_grid_content_top">
+                            <h4 class="bonds_title">Ibond_2020.13.10</h4>
+                            <p>Công ty cổ phẩn Đầu tư IDJ Việt Nam</p>
+                            <h2 class="percent">13%</h2>
+                            <p>Lãi suất năm | Kỳ hạn 3 năm</p>
+                        </div>
+                        <div class="bonds_grid_content_center">
+                            <p>Trả lãi: 3 tháng / lần</p>
+                            <p>Ngày phát hành: 03/06/2020</p>
+                        </div>
+                        <div class="bonds_grid_content_bottom fw">
+                            <div class="row">
+                                <span class="col-6 col-lg-6 bonds_grid_content_bottom_text">Đang nhận cọc</span>
+                                <span class="col-6 col-lg-6 bonds_grid_content_bottom_percent">70%</span>
+                            </div>
+                            <div class="row">
+                                <!-- <input type="range" min="1" max="100" value="70" class="range_slider_input"
+                                    disabled style="width: 70%;"> -->
+                                <div class="progress fw">
+                                    <div class="progress-bar" style="width:70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 bonds_grid">
+                    <div class="bonds_grid_img">
+                        <img class="img-fluid" src="assets/images/bonds.jpg" style="width: 100%;" alt="">
+                        <a href="#" class="readmore">Nhận thông tin <i class="fas fa-caret-right"></i></a>
+                    </div>
+                    <div class="bonds_grid_content">
+                        <div class="bonds_grid_content_top">
+                            <h4 class="bonds_title">Ibond_2020.13.10</h4>
+                            <p>Công ty cổ phẩn Đầu tư IDJ Việt Nam</p>
+                            <h2 class="percent">13%</h2>
+                            <p>Lãi suất năm | Kỳ hạn 3 năm</p>
+                        </div>
+                        <div class="bonds_grid_content_center">
+                            <p>Trả lãi: 3 tháng / lần</p>
+                            <p>Ngày phát hành: 03/06/2020</p>
+                        </div>
+                        <div class="bonds_grid_content_bottom fw">
+                            <div class="row">
+                                <span class="col-6 col-lg-6 bonds_grid_content_bottom_text">Đang nhận cọc</span>
+                                <span class="col-6 col-lg-6 bonds_grid_content_bottom_percent">70%</span>
+                            </div>
+                            <div class="row">
+                                <!-- <input type="range" min="1" max="100" value="70" class="range_slider_input"
+                                    disabled style="width: 70%;"> -->
+                                <div class="progress fw">
+                                    <div class="progress-bar" style="width:70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 bonds_grid">
+                    <div class="bonds_grid_img">
+                        <img class="img-fluid" src="assets/images/bonds.jpg" style="width: 100%;" alt="">
+                        <a href="#" class="readmore">Nhận thông tin <i class="fas fa-caret-right"></i></a>
+                    </div>
+                    <div class="bonds_grid_content">
+                        <div class="bonds_grid_content_top">
+                            <h4 class="bonds_title">Ibond_2020.13.10</h4>
+                            <p>Công ty cổ phẩn Đầu tư IDJ Việt Nam</p>
+                            <h2 class="percent">13%</h2>
+                            <p>Lãi suất năm | Kỳ hạn 3 năm</p>
+                        </div>
+                        <div class="bonds_grid_content_center">
+                            <p>Trả lãi: 3 tháng / lần</p>
+                            <p>Ngày phát hành: 03/06/2020</p>
+                        </div>
+                        <div class="bonds_grid_content_bottom fw">
+                            <div class="row">
+                                <span class="col-6 col-lg-6 bonds_grid_content_bottom_text">Đang nhận cọc</span>
+                                <span class="col-6 col-lg-6 bonds_grid_content_bottom_percent">70%</span>
+                            </div>
+                            <div class="row">
+                                <!-- <input type="range" min="1" max="100" value="70" class="range_slider_input"
+                                    disabled style="width: 70%;"> -->
+                                <div class="progress fw">
+                                    <div class="progress-bar" style="width:70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tutorial" class="fw">
+        <div class="container">
+            <h2 class="text-center">Quy trình đặt mua</h2>
+            <div class="row mar0 tutorial">
+                @{
+                    for (int i = 0; i < Model.OrderProcess.Count; i++)
+                    {
+                        <div class="col-lg-4 tutorial_grid">
+                            <h3>Bước @(i + 1)</h3>
+                            <div class="tutorial_step">
+                                <h4>@Model.OrderProcess[i].HeaderTitle</h4>
+                                <div class="tutorial_step_img">
+                                    <img class="img-fluid" src="@(Model.OrderProcess[i].Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
+                                </div>
+                                <div class="tutorial_step_text">
+                                    <p>@Model.OrderProcess[i].TitleLink1</p>
+                                    <p>@Model.OrderProcess[i].TitleLink2</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="free" class="fw">
+        <div class="section_title">
+            <h2>Miễn phí</h2>
+            <p>Chúng tôi cung cấp những dịch vụ miễn phí</p>
+            <span class="line"></span>
+        </div>
+        <div class="row mar0">
+            @{
+                foreach (var item in Model.FreeServices)
+                {
+                    <div class="col-sm-6 col-lg-3 free_service">
+                        <img class="img-fluid" src="@(item.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
+                        <div class="free_service_content">
+                            <h3>@item.HeaderTitle</h3>
+                            <p>
+                                @Html.Raw(item.Body)
+                            </p>
+                            <a href="@item.Link1.Value" class="readmore">@item.TitleLink1<i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </section>
+
+    <section id="mobilized" class="fw">
+        <div class="container">
+            <div class="section_title">
+                <h2>Đã huy động</h2>
+                <p>Những gì chúng tôi đã làm</p>
+                <span class="line"></span>
+            </div>
+            <div class="row mobilized_content">
+                @{
+                    foreach (var item in Model.WeDo)
+                    {
+                        <div class="col-lg-3 mobilized_content_grid">
+                            <h2>@item.Title</h2>
+                            <p>@item.Describes</p>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="quote" class="fw">
+        <div class="row mar0">
+            <div class="col-lg-6 pad0">
+                <img src="@(Model.Quote.Image.Media.PublicUrl.Substring(1) ?? "")" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 quote_content">
+                <p><i class="fas fa-quote-left"></i></p>
+                <p>
+                    @Html.Raw(Model.Quote.Body)
+                </p>
+                <h5>@Model.Quote.HeaderTitle</h5>
+                <h6>@Model.Quote.Title</h6>
+            </div>
+        </div>
+    </section>
+
+    <section id="comment" class="fw">
+        <div class="container">
+            <div class="comment">
+                <h2 class="comment_title">Ý kiến của khách hàng</h2>
+                <div id="comment_slide">
+                    @{
+                        foreach (var item in Model.CustomerFeedback)
+                        {
+                            <div class="item">
+                                <div class="comment_content">
+                                    <h3 class="text-center">
+                                        <img class="img-fluid" src="@(item.Image.Media.PublicUrl.Substring(1) ?? "")"alt="">
+                                    </h3>
+                                    <p>
+                                        @Html.Raw(item.Body)
+                                    </p>
+                                    <h4 class="text-center"><i class="fas fa-quote-left"></i> @item.BigTitle</h4>
+                                    <span>@item.TopTitle</span>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partner" class="fw">
+        <div class="container">
+            <div id="partner_slide">
+                <div class="item">
+                    <img class="img-fluid" src="assets/images/Apg.png" alt="">
+                </div>
+                <div class="item">
+                    <img class="img-fluid" src="assets/images/2.png" alt="">
+                </div>
+                <div class="item">
+                    <img class="img-fluid" src="assets/images/Apg.png" alt="">
+                </div>
+                <div class="item">
+                    <img class="img-fluid" src="assets/images/2.png" alt="">
+                </div>
+                <div class="item">
+                    <img class="img-fluid" src="assets/images/Apg.png" alt="">
+                </div>
+                <div class="item">
+                    <img class="img-fluid" src="assets/images/2.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

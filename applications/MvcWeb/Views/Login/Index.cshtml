@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Đăng nhập</title>
+
+    <link href="~/Login/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Login/js/jquery.cookie.js"></script>
+    <script src="~/Login/js/AuthServices.js"></script>
+    <script src="~/Login/js/common.js"></script>
+</head>
+<body>
+    <div class="loading-screen">
+        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
+
+    <div class="header">
+        <div class="header-main">
+            <div class="complogo"><img src="~/Login/images/logo.png" /></div>
+            <div class="header-bottom">
+                <div class="header-right w3agile">
+
+                    <div class="header-left-bottom agileinfo">
+
+                        <form action="#" method="post" autocomplete="false">
+                            <input id="username" class="lgInput" type="text" placeholder="Tài khoản/ CMT/ Di động">
+                            <input id="password" class="lgInput" type="password" placeholder="Mật khẩu">
+                            <div class="remember">
+                                <span class="checkbox1">
+                                    <label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>Ghi nhớ</label>
+                                </span>
+                                <div class="forgot">
+                                    <h6><a id="forgotPass" href="#">Quên mật khẩu?</a></h6>
+                                </div>
+                                <div class="clear"> </div>
+                            </div>
+                            <input id="btnlogin" type="button" value="Đăng nhập">
+                            <input id="btnregister" type="button" value="Đăng ký">
+                        </form>
+                        <div class="header-left-top">
+                            <div class="sign-up"> <h2>Đăng ký bằng</h2> </div>
+
+                        </div>
+                        <div class="header-social wthree">
+                            <a href="#" class="face"><h5>Facebook</h5></a>
+                            <a href="#" class="google"><h5>Google Plus</h5></a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

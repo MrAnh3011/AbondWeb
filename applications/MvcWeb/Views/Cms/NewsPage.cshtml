@@ -1,0 +1,115 @@
+﻿@model MvcWeb.Models.NewsPage
+@{
+    ViewData["Title"] = "NewsPage";
+    Func<Piranha.Models.DynamicPost, Piranha.Extend.Blocks.HtmlBlock> GetFirstHtmlBlock = (post) =>
+    {
+        foreach (var block in post.Blocks)
+        {
+            if (block is Piranha.Extend.Blocks.HtmlBlock)
+            {
+                return (Piranha.Extend.Blocks.HtmlBlock)block;
+            }
+        }
+        return null;
+    };
+}
+
+<div id="page_title" class="fw">
+    <img class="img-fluid" src="@(Model.BarnerNews.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt="">
+    <h2 class="page_title">@Model.BarnerNews.Title</h2>
+</div>
+
+<section id="content" class="fw">
+    <div class="container">
+        <section id="news_slide">
+            <div class="news_slide">
+                @foreach (var item in Model.SlidePost)
+                {
+                    var items = new Piranha.Extend.Blocks.HtmlBlock();
+                    foreach(var itemExe in item.SlidePostItems.Post.Blocks)
+                    {
+                        items = (Piranha.Extend.Blocks.HtmlBlock)itemExe;
+                        break;
+                    }
+                    <div class="item">
+                        <div class="news_image">
+                            <img class="img-fluid" src="@(item.Image.Media.PublicUrl.Substring(1)??"")" alt="">
+                        </div>
+                        <div class="row news_info">
+                            <div class="col-lg-6">
+                                <a href="@item.SlidePostItems.Post.Permalink">
+                                    <h4 class="news_slide_cat">Tin nổi bật</h4>
+                                </a>
+                                <a href="@item.SlidePostItems.Post.Permalink">
+                                    <h2 class="news_slide_title">@item.SlidePostItems.GetTitle()</h2>
+                                </a>
+                                <p class="news_slide_excerpt">
+                                    @(Html.Raw(items?.Body ?? "").ToString())
+                                </p>
+                                <a href="@item.SlidePostItems.Post.Permalink" class="link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+
+        <section id="news">
+            <div class="row mar0">
+                <div class="col-lg-8">
+                    <div class="row mar0">
+                        @foreach (var item in Model.Archive.Posts)
+                        {
+                            <div class="col-sm-6 col-lg-6 news_article">
+                                <div class="news_thumb">
+                                    <a href="@item.Permalink">
+                                        <img class="img-fluid"
+                                             src="@Url.Content(item.Regions.ItemImage.ImageBanner.Media?.PublicUrl)" alt="">
+                                    </a>
+                                </div>
+                                <div class="news_content">
+                                    <a href="@item.Permalink">
+                                        <h4 class="news_title">
+                                            @item.Title
+                                        </h4>
+                                    </a>
+                                    <p class="news_excerpt">
+                                        @(Html.Raw(GetFirstHtmlBlock(item)?.Body ?? "").ToString().Substring(3,100) + " ...")
+                                    </p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-4 pad0 news_aside">
+                    <div class="most_view">
+                        <h5>Tin đọc nhiều trong tháng</h5>
+                        <div class="most_view_list">
+                            @foreach (var item in Model.ReadALot)
+                            {
+                                <div class="row most_article ">
+                                    <div class="col-sm-4 col-lg-3 pad0">
+                                        <a href="tintuc-detail.html">
+                                            <img class="img-fluid"
+                                                 src="@(item.Image.Media.PublicUrl.Substring(1)?? "")" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-8 col-lg-9">
+                                        <a href="@item.SlidePostItems.Post.Permalink">
+                                            <h6 class="most_view_title">
+                                                @item.SlidePostItems.GetTitle()
+                                            </h6>
+                                        </a>
+                                        <p class="most_view_excerpt">
+                                            @item.SlidePostItems.Post.Excerpt.Substring(0,30)
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>

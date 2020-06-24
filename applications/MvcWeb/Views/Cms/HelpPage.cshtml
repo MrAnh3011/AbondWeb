@@ -1,0 +1,156 @@
+﻿@model MvcWeb.Models.HelpPage
+@{
+    ViewData["Title"] = "HelpPage";
+}
+
+<div id="page_title" class="fw">
+    <img class="img-fluid" src="@(Model.BarnerHelp.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt="">
+    <h2 class="page_title">@Model.BarnerHelp.Title</h2>
+</div>
+
+
+<section id="content" class="fw">
+
+    <section id="customer">
+        <div class="container">
+            <div class="section_title">
+                <h2>Triết lý phụng sự khách hàng</h2>
+                <span class="line"></span>
+            </div>
+            <div class="row mar0">
+                @foreach (var item in Model.Philosophy)
+                {
+                    <div class="col-12 col-sm-4 col-lg-4 customer_grid">
+                        <img class="img-fluid" src="@(item.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt="">
+                        <h5>@item.Title</h5>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="manager">
+        <div class="advisory">
+            <div class="container">
+                <div class="section_title">
+                    <h2>Chuyên viên tư vấn</h2>
+                    <span class="line"></span>
+                </div>
+                <div class="row mar0">
+                    @foreach (var item in Model.Consultants)
+                    {
+                        <div class="col-12 col-lg-4 manager_item">
+                            <div class="manager_item_img">
+                                <img class="img-fluid" src="@(item.StaffImage.Media.PublicUrl.Substring(1)??"")" alt="">
+                            </div>
+                            <div class="manager_item_text">
+                                <h5>@item.StaffName</h5>
+                                <p>@item.StaffCode</p>
+                            </div>
+                            <div class="manager_item_contact">
+                                <p><i class="fa fa-phone-alt"></i> @item.StaffMobile</p>
+                                <p><i class="fa fa-phone-alt"></i> @item.StaffPhone</p>
+                                <p><i class="fa fa-paper-plane"></i> @item.StaffMail</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="question">
+        <div class="container">
+            <div class="row mar0">
+                <div class="col-lg-6">
+                    <div class="section_title">
+                        <h2>Câu hỏi thường gặp</h2>
+                        <span class="line"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="accordion">
+                        @for (int i = 0; i < Model.Questions.Count; i++)
+                        {
+                            <div class="card">
+                                <div class="card-header" id="@(i==0?"headingOne": "heading"+(i+1))">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse"
+                                                data-target="@(i==0?"#collapseOne": "#collapse"+(i+1))" aria-expanded="true"
+                                                aria-controls="@(i==0?"collapseOne": "collapse"+(i+1))">
+                                            Câu hỏi @(i+1) : @Model.Questions[i].Title
+                                        </button>
+                                    </h5>
+                                </div>
+
+                                <div id="@(i==0?"collapseOne": "collapse"+(i+1))" class="collapse @(i == 0 ? "show": "") " aria-labelledby="@(i==0?"headingOne": "heading"+(i+1))"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        @Html.Raw(Model.Questions[i].Body)
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section_title">
+                <h2>Giải đáp thắc mắc</h2>
+                <span class="line"></span>
+            </div>
+            <div id="form_contact">
+                <div class="row mar0">
+                    <div class="col-sm-4 col-lg-4">
+                        <input type="text" name="name" id="name" placeholder="Họ tên" class="form-control">
+                    </div>
+                    <div class="col-sm-4 col-lg-4">
+                        <input type="text" name="phone" id="phone" placeholder="Số điện thoại"
+                               class="form-control">
+                    </div>
+                    <div class="col-sm-4 col-lg-4">
+                        <input type="text" name="email" id="email" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="col-lg-12 contact_content">
+                        <textarea name="content" id="content" rows="5" placeholder="Nội dung"
+                                  class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="row mar0">
+                    <div class="col-sm-4 col-lg-4">
+                        <button type="submit" class="link">Gửi đi <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="col-sm-8 col-lg-8 support">
+                        <p>Hỗ trợ trực tuyến 24/7:</p>
+                        <p><i class="fas fa-paper-plane"></i> bondservice@apec.com.vn</p>
+                        <p><i class="fas fa-phone-alt"></i> 0963.513.355 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mobilized">
+        <div class="container">
+            <div class="section_title">
+                <h2>Đã huy động</h2>
+                <p>Những gì chúng tôi đã làm</p>
+                <span class="line"></span>
+            </div>
+            <div class="row mobilized_content">
+                @foreach (var item in Model.Wedo)
+                {
+                    <div class="col-lg-3 mobilized_content_grid">
+                        <h2>@item.Title</h2>
+                        <p>@item.Describes</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+</section>
