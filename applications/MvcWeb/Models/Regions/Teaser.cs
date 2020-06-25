@@ -32,6 +32,9 @@ namespace MvcWeb.Models.Regions
         [Field]
         public ImageField Image { get; set; }
 
+        [Field]
+        public VideoField Video { get; set; }
+
         [Field(Options = FieldOption.HalfWidth)]
         public StringField TitleLink1 { get; set; }
 

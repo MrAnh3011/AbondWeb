@@ -48,6 +48,9 @@ a:hover {
 }
 
 #header_info {
+  width: 100%;
+  position: fixed;
+  z-index: 99999;
   background: #254099;
 }
 
@@ -1323,8 +1326,8 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: -webkit-gradient(linear, left top, right top, color-stop(35%, #254099), to(rgba(255, 255, 255, 0.5)));
-  background: linear-gradient(to right, #254099 35%, rgba(255, 255, 255, 0.5));
+  background: -webkit-gradient(linear, left top, right top, color-stop(20%, #254099), to(rgba(255, 255, 255, 0.5)));
+  background: linear-gradient(to right, #254099 20%, rgba(255, 255, 255, 0.5));
   z-index: 15;
   padding: 40px 30px;
   color: #fff;
@@ -1350,8 +1353,8 @@ a:hover {
 #news_slide .news_slide .item .news_info .link {
   color: #fff;
   border: 1px solid #fff;
-  background: -webkit-gradient(linear, right top, left top, color-stop(34%, #254099), color-stop(65%, #fff));
-  background: linear-gradient(to left, #254099 34%, #fff 65%);
+  background: -webkit-gradient(linear, right top, left top, color-stop(35%, #254099), color-stop(65%, #fff));
+  background: linear-gradient(to left, #254099 35%, #fff 65%);
   background-position: right bottom;
   background-size: 300% 100%;
 }
@@ -2232,3 +2235,9 @@ a:hover {
   }
 }
 /*# sourceMappingURL=common.css.map */
+
+.videofile {
+    width: 100%;
+    height: 100%;
+    background: #343434;
+}

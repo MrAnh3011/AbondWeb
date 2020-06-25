@@ -91,7 +91,7 @@ namespace MvcWeb.Controllers
 
         [HttpGet]
         [Route("newspage")]
-        public async Task<IActionResult> NewsPage (Guid id, bool startpage = false, bool draft = false)
+        public async Task<IActionResult> NewsPage(Guid id, bool startpage = false, bool draft = false)
         {
             var model = await _loader.GetPageAsync<NewsPage>(id, HttpContext.User, draft);
             model.Archive = await _api.Archives.GetByIdAsync(id);
@@ -100,10 +100,34 @@ namespace MvcWeb.Controllers
         }
 
         [Route("post")]
-        public async Task<IActionResult> Post (Guid id, bool startpage = false, bool draft = false)
+        public async Task<IActionResult> Post(Guid id, bool startpage = false, bool draft = false)
         {
             var model = await _loader.GetPostAsync<NewsPost>(id, HttpContext.User, draft);
-            ViewBag.Title = model.Category.Title;
+            ViewBag.Host = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            //get next post, previous post
+            var BlogId = model.BlogId;
+            var lstPost = await _loader.GetPageAsync<NewsPage>(BlogId, HttpContext.User, draft);
+            for (int i = 0; i < lstPost.Archive.Posts.Count; i++)
+            {
+                var post = lstPost.Archive.Posts[i].Id;
+                if (post == id)
+                {
+                    if (i - 1 >= 0)
+                    {
+                        ViewBag.Prev = lstPost.Archive.Posts[i - 1].Permalink;
+
+                        if (i + 1 < lstPost.Archive.Posts.Count)
+                            ViewBag.Next = lstPost.Archive.Posts[i + 1].Permalink;
+                    }
+                    else
+                    {
+                        if (i + 1 < lstPost.Archive.Posts.Count)
+                            ViewBag.Next = lstPost.Archive.Posts[i + 1].Permalink;
+                    }
+                }
+            }
+            // end next, previous post
+
             ViewBag.Published = model.Created;
             return View(model);
         }

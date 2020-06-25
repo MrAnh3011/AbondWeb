@@ -25,28 +25,23 @@
             <div class="news_slide">
                 @foreach (var item in Model.SlidePost)
                 {
-                    var items = new Piranha.Extend.Blocks.HtmlBlock();
-                    foreach(var itemExe in item.SlidePostItems.Post.Blocks)
-                    {
-                        items = (Piranha.Extend.Blocks.HtmlBlock)itemExe;
-                        break;
-                    }
+                    string excerpt = item.Post.Excerpt;
                     <div class="item">
                         <div class="news_image">
-                            <img class="img-fluid" src="@(item.Image.Media.PublicUrl.Substring(1)??"")" alt="">
+                            <img class="img-fluid" src="@(item.Post.PrimaryImage.Media.PublicUrl.Substring(1)??"")" alt="">
                         </div>
                         <div class="row news_info">
                             <div class="col-lg-6">
-                                <a href="@item.SlidePostItems.Post.Permalink">
-                                    <h4 class="news_slide_cat">Tin nổi bật</h4>
+                                <a href="@item.Post.Permalink">
+                                    <h4 class="news_slide_cat">@item.Post.Tags[0].Title</h4>
                                 </a>
-                                <a href="@item.SlidePostItems.Post.Permalink">
-                                    <h2 class="news_slide_title">@item.SlidePostItems.GetTitle()</h2>
+                                <a href="@item.Post.Permalink">
+                                    <h2 class="news_slide_title">@item.Post.Title</h2>
                                 </a>
                                 <p class="news_slide_excerpt">
-                                    @(Html.Raw(items?.Body ?? "").ToString())
+                                    @excerpt.Substring(0, excerpt.Length - 4)
                                 </p>
-                                <a href="@item.SlidePostItems.Post.Permalink" class="link">Xem chi tiết</a>
+                                <a href="@item.Post.Permalink" class="link">Xem chi tiết</a>
                             </div>
                         </div>
                     </div>
@@ -64,7 +59,7 @@
                                 <div class="news_thumb">
                                     <a href="@item.Permalink">
                                         <img class="img-fluid"
-                                             src="@Url.Content(item.Regions.ItemImage.ImageBanner.Media?.PublicUrl)" alt="">
+                                             src="@Url.Content(item.PrimaryImage.Media?.PublicUrl)" alt="">
                                     </a>
                                 </div>
                                 <div class="news_content">
@@ -89,19 +84,19 @@
                             {
                                 <div class="row most_article ">
                                     <div class="col-sm-4 col-lg-3 pad0">
-                                        <a href="tintuc-detail.html">
+                                        <a href="@item.Post.Permalink   ">
                                             <img class="img-fluid"
-                                                 src="@(item.Image.Media.PublicUrl.Substring(1)?? "")" alt="">
+                                                 src="@(item.Post.PrimaryImage.Media.PublicUrl.Substring(1)??"")" alt="">
                                         </a>
                                     </div>
                                     <div class="col-sm-8 col-lg-9">
-                                        <a href="@item.SlidePostItems.Post.Permalink">
+                                        <a href="@item.Post.Permalink">
                                             <h6 class="most_view_title">
-                                                @item.SlidePostItems.GetTitle()
+                                                @item.Post.Title
                                             </h6>
                                         </a>
                                         <p class="most_view_excerpt">
-                                            @item.SlidePostItems.Post.Excerpt.Substring(0,30)
+                                            @(item.Post.Excerpt.Substring(0,60) + "...")
                                         </p>
                                     </div>
                                 </div>

@@ -4,9 +4,9 @@
 }
 
     <div id="page_title" class="fw">
-        <img class="img-fluid" src="@(Model.ItemPost.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt="">
-        <h2 class="page_title">@ViewBag.Title</h2>
-        <p class="publish_at">@Model.ItemPost.SubTitle</p>
+        <img class="img-fluid" src="@(Model.PrimaryImage.Media.PublicUrl.Substring(1)??"")" alt="">
+        <h2 class="page_title">@Model.Category.Title</h2>
+        <p class="publish_at">@Model.Created</p>
     </div>
 
     <section id="content" class="fw">
@@ -32,13 +32,13 @@
                         <div class="row news_detail_share">
                             <div class="col-6 col-lg-6 pad0">
                                 <span>Chia sẻ</span>
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=@ViewBag.Host@Model.Permalink"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://twitter.com/intent/tweet?text=@ViewBag.Host@Model.Permalink"><i class="fab fa-twitter"></i></a>
                                 <a href="#"><i class="fab fa-youtube"></i></a>
                             </div>
                             <div class="col-6 col-lg-6 pad0 text-right">
-                                <a href="#" class="news_pre"><i class="fas fa-arrow-left"></i> Tin trước</a>
-                                <a href="#" class="news_next">Tin sau <i class="fas fa-arrow-right"></i></a>
+                                <a href="@(ViewBag.Prev??"")" class="news_pre"><i class="fas fa-arrow-left"></i> Tin trước</a>
+                                <a href="@(ViewBag.Next??"")" class="news_next">Tin sau <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
 
@@ -46,90 +46,28 @@
                             <div class="most_view">
                                 <h5>Tin liên quan</h5>
                                 <div class="most_view_list">
-                                    <div class="row most_article ">
-                                        <div class="col-sm-4 col-lg-2 pad0">
-                                            <a href="#">
-                                                <img class="img-fluid" src="assets/images/bonds.jpg"
-                                                     alt="">
-                                            </a>
+                                    @foreach (var item in Model.lstRelatedPost)
+                                    {
+                                        var excerpt = item.Post.Excerpt;
+                                        <div class="row most_article ">
+                                            <div class="col-sm-4 col-lg-2 pad0">
+                                                <a href="@item.Post.Permalink">
+                                                    <img class="img-fluid" src="@(item.Post.PrimaryImage.Media.PublicUrl.Substring(1)??"")"
+                                                         alt="">
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-8 col-lg-10">
+                                                <a href="#">
+                                                    <h6 class="most_view_title">
+                                                        @item.Post.Title
+                                                    </h6>
+                                                </a>
+                                                <p class="most_view_excerpt">
+                                                    @excerpt.Substring(0, excerpt.Length - 4)
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div class="col-sm-8 col-lg-10">
-                                            <a href="#">
-                                                <h6 class="most_view_title">
-                                                    Lorem ipsum dolor sit, amet consectetur
-                                                    adipisicing elit. Tempora, corrupti!
-                                                </h6>
-                                            </a>
-                                            <p class="most_view_excerpt">
-                                                Lorem ipsum dolor sit amet, consectetur
-                                                adipisicing elit. Deserunt, error cum? Ut, doloremque accusamus.
-                                                Dolorem nesciunt aliquam voluptate alias deleniti...
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row most_article ">
-                                        <div class="col-sm-4 col-lg-2 pad0">
-                                            <a href="#">
-                                                <img class="img-fluid" src="assets/images/bonds.jpg"
-                                                     alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-8 col-lg-10">
-                                            <a href="#">
-                                                <h6 class="most_view_title">
-                                                    Lorem ipsum dolor sit, amet consectetur
-                                                    adipisicing elit. Tempora, corrupti!
-                                                </h6>
-                                            </a>
-                                            <p class="most_view_excerpt">
-                                                Lorem ipsum dolor sit amet, consectetur
-                                                adipisicing elit. Deserunt, error cum? Ut, doloremque accusamus.
-                                                Dolorem nesciunt aliquam voluptate alias deleniti...
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row most_article ">
-                                        <div class="col-sm-4 col-lg-2 pad0">
-                                            <a href="#">
-                                                <img class="img-fluid" src="assets/images/bonds.jpg"
-                                                     alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-8 col-lg-10">
-                                            <a href="#">
-                                                <h6 class="most_view_title">
-                                                    Lorem ipsum dolor sit, amet consectetur
-                                                    adipisicing elit. Tempora, corrupti!
-                                                </h6>
-                                            </a>
-                                            <p class="most_view_excerpt">
-                                                Lorem ipsum dolor sit amet, consectetur
-                                                adipisicing elit. Deserunt, error cum? Ut, doloremque accusamus.
-                                                Dolorem nesciunt aliquam voluptate alias deleniti...
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row most_article ">
-                                        <div class="col-sm-4 col-lg-2 pad0">
-                                            <a href="#">
-                                                <img class="img-fluid" src="assets/images/bonds.jpg"
-                                                     alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-8 col-lg-10">
-                                            <a href="#">
-                                                <h6 class="most_view_title">
-                                                    Lorem ipsum dolor sit, amet consectetur
-                                                    adipisicing elit. Tempora, corrupti!
-                                                </h6>
-                                            </a>
-                                            <p class="most_view_excerpt">
-                                                Lorem ipsum dolor sit amet, consectetur
-                                                adipisicing elit. Deserunt, error cum? Ut, doloremque accusamus.
-                                                Dolorem nesciunt aliquam voluptate alias deleniti...
-                                            </p>
-                                        </div>
-                                    </div>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -138,74 +76,6 @@
                         <div class="most_view">
                             <h5>Tin đọc nhiều trong tháng</h5>
                             <div class="most_view_list">
-                                <div class="row most_article ">
-                                    <div class="col-sm-4 col-lg-3 pad0">
-                                        <a href="#"><img class="img-fluid" src="assets/images/bonds.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-sm-8 col-lg-9">
-                                        <a href="#">
-                                            <h6 class="most_view_title">
-                                                Lorem ipsum dolor sit amet consectetur
-                                                adipisicing...
-                                            </h6>
-                                        </a>
-                                        <p class="most_view_excerpt">
-                                            Lorem ipsum dolor, sit amet consectetur
-                                            adipisicing elit...
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row most_article ">
-                                    <div class="col-sm-4 col-lg-3 pad0">
-                                        <a href="#"><img class="img-fluid" src="assets/images/bonds.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-sm-8 col-lg-9">
-                                        <a href="#">
-                                            <h6 class="most_view_title">
-                                                Lorem ipsum dolor sit amet consectetur
-                                                adipisicing...
-                                            </h6>
-                                        </a>
-                                        <p class="most_view_excerpt">
-                                            Lorem ipsum dolor, sit amet consectetur
-                                            adipisicing elit...
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row most_article ">
-                                    <div class="col-sm-4 col-lg-3 pad0">
-                                        <a href="#"><img class="img-fluid" src="assets/images/bonds.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-sm-8 col-lg-9">
-                                        <a href="#">
-                                            <h6 class="most_view_title">
-                                                Lorem ipsum dolor sit amet consectetur
-                                                adipisicing...
-                                            </h6>
-                                        </a>
-                                        <p class="most_view_excerpt">
-                                            Lorem ipsum dolor, sit amet consectetur
-                                            adipisicing elit...
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row most_article ">
-                                    <div class="col-sm-4 col-lg-3 pad0">
-                                        <a href="#"><img class="img-fluid" src="assets/images/bonds.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-sm-8 col-lg-9">
-                                        <a href="#">
-                                            <h6 class="most_view_title">
-                                                Lorem ipsum dolor sit amet consectetur
-                                                adipisicing...
-                                            </h6>
-                                        </a>
-                                        <p class="most_view_excerpt">
-                                            Lorem ipsum dolor, sit amet consectetur
-                                            adipisicing elit...
-                                        </p>
-                                    </div>
-                                </div>
                                 <div class="row most_article ">
                                     <div class="col-sm-4 col-lg-3 pad0">
                                         <a href="#"><img class="img-fluid" src="assets/images/bonds.jpg" alt=""></a>

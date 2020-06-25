@@ -1,8 +1,9 @@
-﻿using MvcWeb.Models.Regions;
-using Piranha.AttributeBuilder;
+﻿using Piranha.AttributeBuilder;
+using Piranha.Data;
 using Piranha.Extend;
+using Piranha.Extend.Fields;
 using Piranha.Models;
-
+using System.Collections.Generic;
 
 namespace MvcWeb.Models
 {
@@ -10,9 +11,6 @@ namespace MvcWeb.Models
     public class NewsPost : Post<NewsPost>
     {
         [Region()]
-        public Banner ItemPost { get; set; }
-
-        [Region()]
-        public Banner ItemImage { get; set; }
+        public IList<Piranha.Extend.Fields.PostField> lstRelatedPost { get; set; }
     }
 }
