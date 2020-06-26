@@ -10,7 +10,6 @@ namespace MvcWeb.Models
 {
     [PageType(Title = "Tin Tức", IsArchive = true, UseBlocks = false)]
     [PageTypeRoute(Title = "NewsPage", Route ="/newspage")]
-    
     public class NewsPage : Page<NewsPage>
     {
         [Region(Display = RegionDisplayMode.Full, Title = "Barner", ListTitle = "Barner", ListPlaceholder = "Barner", Icon = "fas fa-images")]

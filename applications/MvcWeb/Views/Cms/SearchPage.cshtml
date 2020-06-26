@@ -1,0 +1,38 @@
+﻿@model MvcWeb.Models.SearchPage
+@{
+    ViewData["Title"] = "SearchPage";
+}
+
+<div id="page_title">
+    <img class="img-fluid" src="@(Model.Banner.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt="">
+    <h2 class="page_title">@Model.Banner.Title</h2>
+</div>
+<section id="news">
+    <div class="row mar0">
+        <div class="col-lg-8 content-search">
+            <div class="row mar0">
+                @foreach (var item in ViewBag.lstPosts)
+                {
+                    <div class="col-sm-4 col-lg-4 news_article">
+                        <div class="news_thumb">
+                            <a href="@item.Permalink">
+                                <img class="img-fluid"
+                                     src="@Url.Content(item.PrimaryImage.Media?.PublicUrl)" alt="">
+                            </a>
+                        </div>
+                        <div class="news_content">
+                            <a href="@item.Permalink">
+                                <h4 class="news_title">
+                                    @item.Title
+                                </h4>
+                            </a>
+                            <p class="news_excerpt">
+                                @(item.Excerpt.Substring(0, 60)+ "...")
+                            </p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

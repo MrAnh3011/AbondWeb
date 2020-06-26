@@ -84,7 +84,15 @@ namespace MvcWeb
                     options.SwaggerEndpoint("/swagger/v1/swagger.json", "PiranhaCMS API V1");
                 });
             }
-
+            app.Use(async (context, next) =>
+            {
+                await next();
+                if (context.Response.StatusCode == 404)
+                {
+                    context.Request.Path = "/not-found";
+                    await next();
+                }
+            });
             App.Init(api);
 
             // Configure cache level
@@ -99,6 +107,8 @@ namespace MvcWeb
                 .AddType(typeof(Models.DocumentPage))
                 .AddType(typeof(Models.NewsPage))
                 .AddType(typeof(Models.BondsPage))
+                .AddType(typeof(Models.PageNotFound))
+                .AddType(typeof(Models.SearchPage))
                 .Build()
                 .DeleteOrphans();
             var postTypeBuilder = new Piranha.AttributeBuilder.PostTypeBuilder(api)

@@ -140,10 +140,10 @@
                                 <ul class="submenu fw sub2">
                                     @foreach (var submenu in WebApp.Site.Sitemap[i].Items)
                                     {
-                                    <li>
-                                        <i class="fas fa-long-arrow-alt-right"></i>
-                                        <a href="@submenu.Permalink">@submenu.MenuTitle</a>
-                                    </li>
+                                        <li>
+                                            <i class="fas fa-long-arrow-alt-right"></i>
+                                            <a href="@submenu.Permalink">@submenu.MenuTitle</a>
+                                        </li>
                                     }
                                 </ul>
                             }
@@ -154,8 +154,12 @@
                         </li>
                     }
                 }
-                <li><i class="fas fa-search search"></i></li>
+                <li><i class="fas fa-search search searchIcon"></i></li>
             </ul>
+            <div class="searchInputText">
+                <input id="searchContent" type="search">
+                <input id="btnSubmitSearch" type="button" value="Search"></input>
+            </div>
         </div>
     </div>
 </div>

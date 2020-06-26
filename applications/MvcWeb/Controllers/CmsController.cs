@@ -9,6 +9,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -106,29 +107,54 @@ namespace MvcWeb.Controllers
             ViewBag.Host = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             //get next post, previous post
             var BlogId = model.BlogId;
-            var lstPost = await _loader.GetPageAsync<NewsPage>(BlogId, HttpContext.User, draft);
-            for (int i = 0; i < lstPost.Archive.Posts.Count; i++)
+            var pageItem = await _loader.GetPageAsync<NewsPage>(BlogId, HttpContext.User, draft);
+            for (int i = 0; i < pageItem.Archive.Posts.Count; i++)
             {
-                var post = lstPost.Archive.Posts[i].Id;
+                var post = pageItem.Archive.Posts[i].Id;
                 if (post == id)
                 {
                     if (i - 1 >= 0)
                     {
-                        ViewBag.Prev = lstPost.Archive.Posts[i - 1].Permalink;
+                        ViewBag.Prev = pageItem.Archive.Posts[i - 1].Permalink;
 
-                        if (i + 1 < lstPost.Archive.Posts.Count)
-                            ViewBag.Next = lstPost.Archive.Posts[i + 1].Permalink;
+                        if (i + 1 < pageItem.Archive.Posts.Count)
+                            ViewBag.Next = pageItem.Archive.Posts[i + 1].Permalink;
                     }
                     else
                     {
-                        if (i + 1 < lstPost.Archive.Posts.Count)
-                            ViewBag.Next = lstPost.Archive.Posts[i + 1].Permalink;
+                        if (i + 1 < pageItem.Archive.Posts.Count)
+                            ViewBag.Next = pageItem.Archive.Posts[i + 1].Permalink;
                     }
                 }
-            }
-            // end next, previous post
+            }// end next, previous post
 
-            ViewBag.Published = model.Created;
+            //Get list MuchRead
+            ViewBag.lstMuchRead = pageItem.ReadALot;
+            return View(model);
+        }
+
+        [Route("searchpage/{keyword?}")]
+        public async Task<IActionResult> SearchPage(Guid id, string keyword, bool startpage = false, bool draft = false)
+        {
+            var model = await _loader.GetPageAsync<SearchPage>(id, HttpContext.User, draft);
+            var listPost = _db.Posts.Where(x => x.Title.Contains(keyword)).ToList();
+            var newsPosts = new List<NewsPost>();
+            foreach (var item in listPost)
+            {
+                var itemPosts = await _loader.GetPostAsync<NewsPost>(item.Id, HttpContext.User, draft);
+                newsPosts.Add(itemPosts);
+            }
+            ViewBag.lstPosts = newsPosts;
+
+            return View(model);
+        }
+
+        [HttpGet]
+        [Route("pagenotfound")]
+        public async Task<IActionResult> PageNotFound(Guid id, bool startpage = false, bool draft = false)
+        {
+            var model = await _loader.GetPageAsync<PageNotFound>(id, HttpContext.User, draft);
+
             return View(model);
         }
     }
