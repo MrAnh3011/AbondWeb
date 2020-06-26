@@ -4,6 +4,14 @@
 
     let search_width = width * 100 / 100;
 
+    function ShowLoadingScreen() {
+        $(".loading-screen").css({ "display": "block" });
+    }
+
+    function HideLoadingScreen() {
+        $(".loading-screen").css({ "display": "none" });
+    }
+
     $('#header_login .search_mb form').css('min-width', search_width);
 
     // $('#slider img').css('height', height);
@@ -209,7 +217,76 @@
     });
 
     $("#btnSubmitSearch").click(function () {
-        var inputText = $("#searchContent").val();
+        let inputText = $("#searchContent").val();
         window.location.href = "/tim-kiem/" + inputText;
+    });
+
+    $("#submitTroubleshooting").click(function () {
+        ShowLoadingScreen();
+        let ToMail = $("#mailReceiver").text();
+        let SubjectMail = "Người dùng Abond - Yêu cầu hỗ trợ/giải đáp thắc mắc";
+        let BodyMail = "Họ tên: " + $("#name").val() + "\n";
+        BodyMail += "Số điện thoại: " + $("#phone").val() + "\n";
+        BodyMail += "Email: " + $("#email").val() + "\n";
+        BodyMail += "Nội dung: " + $("#contentText").val();
+        let info = JSON.stringify({
+            To: ToMail,
+            Subject: SubjectMail,
+            Body: BodyMail
+        });
+
+        $.ajax({
+            url: "/api/sendmail",
+            data: info,
+            dataType: "json",
+            type: "POST",
+            contentType: "application/json",
+            success: function (response) {
+                HideLoadingScreen();
+                if (response.status == "success")
+                    swal("Thành công", "Đã gửi thông tin thành công, chúng tôi sẽ liên hệ bạn trong thời gian sớm nhất", "success");
+                else 
+                    swal("Lỗi", "Gửi thông tin không thành công, vui lòng kiểm tra lại thông tin", "error");
+            },
+            error: function (response) {
+                HideLoadingScreen();
+                swal("Lỗi", "Gửi thông tin không thành công, vui lòng kiểm tra lại thông tin", "error");
+            }
+        });
+    });
+
+    $("#getInfoBonds").click(function () {
+        ShowLoadingScreen();
+        let ToMail = $("#mailReceiver").text();
+        let SubjectMail = "Người dùng Abond - Nhận thông tin về trái phiếu";
+        let BodyMail = "Họ tên: " + $("#name").val() + "\n";
+        BodyMail += "Số điện thoại: " + $("#phone").val() + "\n";
+        BodyMail += "Email: " + $("#email").val() + "\n";
+        BodyMail += "Nội dung: " + $("#contentText").val();
+
+        let info = JSON.stringify({
+            To: ToMail,
+            Subject: SubjectMail,
+            Body: BodyMail
+        });
+
+        $.ajax({
+            url: "/api/sendmail",
+            data: info,
+            dataType: "json",
+            type: "POST",
+            contentType: "application/json",
+            success: function (response) {
+                HideLoadingScreen();
+                if (response.status == "success")
+                    swal("Thành công", "Đã gửi thông tin thành công, bạn sẽ được nhận thông tin mới nhất về những sản phẩm của chúng tôi", "success");
+                else
+                    swal("Lỗi", "Gửi thông tin không thành công, vui lòng kiểm tra lại thông tin", "error");
+            },
+            error: function (response) {
+                HideLoadingScreen();
+                swal("Lỗi", "Gửi thông tin không thành công, vui lòng kiểm tra lại thông tin", "error");
+            }
+        });
     });
 });

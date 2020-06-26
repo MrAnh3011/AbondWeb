@@ -12,16 +12,16 @@ namespace MvcWeb.Models
     [PageTypeRoute(Title = "NewsPage", Route ="/newspage")]
     public class NewsPage : Page<NewsPage>
     {
-        [Region(Display = RegionDisplayMode.Full, Title = "Barner", ListTitle = "Barner", ListPlaceholder = "Barner", Icon = "fas fa-images")]
+        [Region(Display = RegionDisplayMode.Full, Title = "Barner", ListTitle = "Barner", ListPlaceholder = "Barner")]
         public Banner BarnerNews { get; set; }
 
-        [Region(Display = RegionDisplayMode.Full, Title = "SlideNews", ListTitle = "SlideNews", ListPlaceholder = "SlideNews", Icon = "fas fa-images")]
+        [Region(Display = RegionDisplayMode.Full, Title = "Slide tin tức", ListTitle = "Slide tin tức", ListPlaceholder = "Slide tin tức")]
         public IList<Piranha.Extend.Fields.PostField> SlidePost { get; set; }
 
-        [Region(Display = RegionDisplayMode.Full, Title = "NewsPost", ListTitle = "NewsPost", ListPlaceholder = "NewsPost", Icon = "fas fa-images")]
+        [Region(Display = RegionDisplayMode.Full, Title = "Danh sách tin tức", ListTitle = "Danh sách tin tức", ListPlaceholder = "Danh sách tin tức")]
         public PostArchive<DynamicPost> Archive { get; set; }
 
-        [Region(Display = RegionDisplayMode.Full, Title = "ReadALot", ListTitle = "ReadALot", ListPlaceholder = "ReadALot", Icon = "fas fa-images")]
+        [Region(Display = RegionDisplayMode.Full, Title = "Tin đọc nhiều", ListTitle = "Tin đọc nhiều", ListPlaceholder = "Tin đọc nhiều")]
         public IList<Piranha.Extend.Fields.PostField> ReadALot { get; set; }
     }
 }

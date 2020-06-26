@@ -34,6 +34,9 @@ namespace MvcWeb.Models
         public HtmlField Example { get; set; }
 
         [Region(Display = RegionDisplayMode.Full, Title = "Hướng dẫn đầu tư", ListTitle = "Hướng dẫn đầu tư", ListPlaceholder = "Hướng dẫn đầu tư")]
-        public IList<TextHtmlImage> lstGuide { get; set; } 
+        public IList<TextHtmlImage> lstGuide { get; set; }
+
+        [Region(Display = RegionDisplayMode.Full, Title = "Người nhận mail", ListTitle = "Người nhận mail", ListPlaceholder = "Người nhận mail")]
+        public StringField MailReceiver { get; set; }
     }
 }

@@ -13,10 +13,10 @@ namespace MvcWeb.Models
     [PageTypeRoute(Title = "EnterprisePage", Route = "/enterprisepage")]
     public class EnterprisePage : Page<EnterprisePage>
     {
-        [Region(Display = RegionDisplayMode.Full, Title = "Barner", ListTitle = "Barner", ListPlaceholder = "Barner", Icon = "fas fa-images")]
+        [Region(Display = RegionDisplayMode.Full, Title = "Barner", ListTitle = "Barner", ListPlaceholder = "Barner")]
         public Banner BarnerIntro { get; set; }
 
-        [Region(Display = RegionDisplayMode.Full, Title = "Company", ListTitle = "Công ty", ListPlaceholder = "Công ty", Icon = "fas fa-images")]
+        [Region(Display = RegionDisplayMode.Full, Title = "Công ty", ListTitle = "Công ty", ListPlaceholder = "Công ty")]
         public IList<Enterprise> Company { get; set; }
     }
 }

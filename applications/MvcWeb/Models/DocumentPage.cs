@@ -13,16 +13,16 @@ namespace MvcWeb.Models
     [PageTypeRoute(Title = "DocumentPage", Route = "/documentpage")]
     public class DocumentPage : Page<DocumentPage>
     {
-        [Region(Display = RegionDisplayMode.Full, Title = "Barner", ListTitle = "Barner", ListPlaceholder = "Barner", Icon = "fas fa-images")]
+        [Region(Display = RegionDisplayMode.Full, Title = "Barner", ListTitle = "Barner", ListPlaceholder = "Barner")]
         public Banner BarnerDoc { get; set; }
 
-        [Region(Display = RegionDisplayMode.Full, Title = "BondDocument", ListTitle = "BondDocument", ListPlaceholder = "BondDocument", Icon = "fas fa-images")]
+        [Region(Display = RegionDisplayMode.Full, Title = "Thông tin công bố TPDN", ListTitle = "Thông tin công bố TPDN", ListPlaceholder = "Thông tin công bố TPDN")]
         public IList<Document> BondInfo { get; set; }
 
-        [Region(Display = RegionDisplayMode.Full, Title = "Document", ListTitle = "Document", ListPlaceholder = "Document", Icon = "fas fa-images")]
+        [Region(Display = RegionDisplayMode.Full, Title = "Pháp lý doanh nghiệp", ListTitle = "Pháp lý doanh nghiệp", ListPlaceholder = "Pháp lý doanh nghiệp")]
         public IList<Document> CoporateLegal { get; set; }
 
-        [Region(Display = RegionDisplayMode.Full, Title = "Document", ListTitle = "Document", ListPlaceholder = "Document", Icon = "fas fa-images")]
+        [Region(Display = RegionDisplayMode.Full, Title = "Pháp lý phát hành", ListTitle = "Pháp lý phát hành", ListPlaceholder = "Pháp lý phát hành")]
         public IList<Document> LegalRelease { get; set; }
     }
 }

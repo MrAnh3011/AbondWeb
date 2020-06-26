@@ -116,19 +116,20 @@
                         <input type="text" name="email" id="email" placeholder="Email" class="form-control">
                     </div>
                     <div class="col-lg-12 contact_content">
-                        <textarea name="content" id="content" rows="5" placeholder="Nội dung"
+                        <textarea name="content" id="contentText" rows="5" placeholder="Nội dung"
                                   class="form-control"></textarea>
                     </div>
                 </div>
                 <div class="row mar0">
                     <div class="col-sm-4 col-lg-4">
-                        <button type="submit" class="link">Gửi đi <i class="fas fa-arrow-right"></i></button>
+                        <button id="submitTroubleshooting" type="button" class="link">Gửi đi <i class="fas fa-arrow-right"></i></button>
                     </div>
                     <div class="col-sm-8 col-lg-8 support">
                         <p>Hỗ trợ trực tuyến 24/7:</p>
                         <p><i class="fas fa-paper-plane"></i> bondservice@apec.com.vn</p>
-                        <p><i class="fas fa-phone-alt"></i> 0963.513.355 </p>
+                        <p><i class="fas fa-phone-alt"></i> 096.351.3355 </p>
                     </div>
+                    <span id="mailReceiver" style="display:none">@Model.MailReceriver</span>
                 </div>
             </div>
         </div>

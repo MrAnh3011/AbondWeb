@@ -104,7 +104,7 @@
                         @Html.Raw(Model.DoYouKnow1.Body)
                     </p>
 
-                    <a href="@Model.DoYouKnow1.Link1.Value" class="link">@Model.DoYouKnow1.TitleLink1</a>
+                    <a data-toggle="modal" data-target="#doyouknow1" class="link">Xem chi tiết</a>
                 </div>
             </div>
             <div class="row why_choose_row_bot">
@@ -113,10 +113,54 @@
                     <ul>
                         @Html.Raw(@Model.DoYouKnow2.Body)
                     </ul>
-                    <a href="@Model.DoYouKnow2.Link1.Value" class="link">@Model.DoYouKnow2.TitleLink1</a>
+                    <a data-toggle="modal" data-target="#doyouknow2" class="link">Xem chi tiết</a>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 why_choose_right">
                     <img class="img-fluid" src="@(Model.DoYouKnow2.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
+                </div>
+            </div>
+        </div>
+        <div id="doyouknow1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <video class="videofile" controls autoplay>
+                            <source src="@(Model.DoYouKnow1.Video.Media.PublicUrl.Substring(1) ?? "")">
+                            Your browser does not support HTML video.
+                        </video>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-12 col-sm-12 col-lg-12 why_choose_right">
+                            <h6>@Model.DoYouKnow1.HeaderTitle</h6>
+                            <h2>@Model.DoYouKnow1.Title</h2>
+                            <p>
+                                @Html.Raw(Model.DoYouKnow1.Body)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary close_btn" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="doyouknow2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <img class="img-fluid" src="@(Model.DoYouKnow2.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-12 col-sm-12 col-lg-12 why_choose_right">
+                            <h2>@Model.DoYouKnow2.Title</h2>
+                            <ul>
+                                @Html.Raw(@Model.DoYouKnow2.Body)
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary close_btn" data-dismiss="modal">Đóng</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -231,23 +275,21 @@
         <div class="container">
             <h2 class="text-center">Quy trình đặt mua</h2>
             <div class="row mar0 tutorial">
-                @{
-                    for (int i = 0; i < Model.OrderProcess.Count; i++)
-                    {
-                        <div class="col-lg-4 tutorial_grid">
-                            <h3>Bước @(i + 1)</h3>
-                            <div class="tutorial_step">
-                                <h4>@Model.OrderProcess[i].HeaderTitle</h4>
-                                <div class="tutorial_step_img">
-                                    <img class="img-fluid" src="@(Model.OrderProcess[i].Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
-                                </div>
-                                <div class="tutorial_step_text">
-                                    <p>@Model.OrderProcess[i].TitleLink1</p>
-                                    <p>@Model.OrderProcess[i].TitleLink2</p>
-                                </div>
+                @for (int i = 0; i < Model.OrderProcess.Count; i++)
+                {
+                    <div class="col-lg-4 tutorial_grid">
+                        <h3>Bước @(i + 1)</h3>
+                        <div class="tutorial_step">
+                            <h4>@Model.OrderProcess[i].HeaderTitle</h4>
+                            <div class="tutorial_step_img">
+                                <img class="img-fluid" src="@(Model.OrderProcess[i].Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
+                            </div>
+                            <div class="tutorial_step_text">
+                                <p>@Model.OrderProcess[i].TitleLink1</p>
+                                <p>@Model.OrderProcess[i].TitleLink2</p>
                             </div>
                         </div>
-                    }
+                    </div>
                 }
             </div>
         </div>
@@ -260,20 +302,18 @@
             <span class="line"></span>
         </div>
         <div class="row mar0">
-            @{
-                foreach (var item in Model.FreeServices)
-                {
-                    <div class="col-sm-6 col-lg-3 free_service">
-                        <img class="img-fluid" src="@(item.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
-                        <div class="free_service_content">
-                            <h3>@item.HeaderTitle</h3>
-                            <p>
-                                @Html.Raw(item.Body)
-                            </p>
-                            <a href="@item.Link1.Value" class="readmore">@item.TitleLink1<i class="fas fa-arrow-right"></i></a>
-                        </div>
+            @foreach (var item in Model.FreeServices)
+            {
+                <div class="col-sm-6 col-lg-3 free_service">
+                    <img class="img-fluid" src="@(item.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
+                    <div class="free_service_content">
+                        <h3>@item.HeaderTitle</h3>
+                        <p>
+                            @Html.Raw(item.Body)
+                        </p>
+                        <a href="@item.Link1.Value" class="readmore">@item.TitleLink1<i class="fas fa-arrow-right"></i></a>
                     </div>
-                }
+                </div>
             }
         </div>
     </section>
@@ -286,14 +326,12 @@
                 <span class="line"></span>
             </div>
             <div class="row mobilized_content">
-                @{
-                    foreach (var item in Model.WeDo)
-                    {
-                        <div class="col-lg-3 mobilized_content_grid">
-                            <h2>@item.Title</h2>
-                            <p>@item.Describes</p>
-                        </div>
-                    }
+                @foreach (var item in Model.WeDo)
+                {
+                    <div class="col-lg-3 mobilized_content_grid">
+                        <h2>@item.Title</h2>
+                        <p>@item.Describes</p>
+                    </div>
                 }
             </div>
         </div>
@@ -320,22 +358,20 @@
             <div class="comment">
                 <h2 class="comment_title">Ý kiến của khách hàng</h2>
                 <div id="comment_slide">
-                    @{
-                        foreach (var item in Model.CustomerFeedback)
-                        {
-                            <div class="item">
-                                <div class="comment_content">
-                                    <h3 class="text-center">
-                                        <img class="img-fluid" src="@(item.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
-                                    </h3>
-                                    <p>
-                                        @item.Description
-                                    </p>
-                                    <h4 class="text-center"><i class="fas fa-quote-left"></i> @item.TopTitle</h4>
-                                    <span>@item.SubTitle</span>
-                                </div>
+                    @foreach (var item in Model.CustomerFeedback)
+                    {
+                        <div class="item">
+                            <div class="comment_content">
+                                <h3 class="text-center">
+                                    <img class="img-fluid" src="@(item.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
+                                </h3>
+                                <p>
+                                    @item.Description
+                                </p>
+                                <h4 class="text-center"><i class="fas fa-quote-left"></i> @item.TopTitle</h4>
+                                <span>@item.SubTitle</span>
                             </div>
-                        }
+                        </div>
                     }
                 </div>
             </div>
