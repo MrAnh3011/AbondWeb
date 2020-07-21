@@ -216,9 +216,18 @@
         }
     });
 
-    $("#btnSubmitSearch").click(function () {
-        let inputText = $("#searchContent").val();
-        window.location.href = "/tim-kiem/" + inputText;
+    $("#searchContent").on('keypress', function (e) {
+        if (e.which == 13) {
+            let inputText = $("#searchContent").val();
+            window.location.href = "/tim-kiem/" + inputText;
+        }
+    });
+
+    $("#search_mbc").on('keypress', function (e) {
+        if (e.which == 13) {
+            let inputText = $("#search_mbc").val();
+            window.location.href = "/tim-kiem/" + inputText;
+        }
     });
 
     $("#submitTroubleshooting").click(function () {

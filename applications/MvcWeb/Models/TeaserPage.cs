@@ -25,7 +25,7 @@ namespace MvcWeb.Models
     public class TeaserPage : Page<TeaserPage>
     {
         [Region(Display = RegionDisplayMode.Full, Title = "Slide Post", ListTitle = "Slide Post", ListPlaceholder = "Slide Post")]
-        public IList<PostField> SlidePost { get; set; }
+        public IList<Banner> SlidePost { get; set; }
 
 
         [Region(Display = RegionDisplayMode.Full, Title = "Bạn có biết 1", ListTitle = "Bạn có biết 1", ListPlaceholder = "Bạn có biết 1")]
