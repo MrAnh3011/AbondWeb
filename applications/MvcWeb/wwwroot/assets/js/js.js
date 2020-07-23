@@ -266,12 +266,37 @@
 
     $("#getInfoBonds").click(function () {
         ShowLoadingScreen();
+        let name = $("#name").val();
+        let phone = $("#phone").val();
+        let email = $("#email").val();
+        let content = $("#contentText").val();
+
         let ToMail = $("#mailReceiver").text();
         let SubjectMail = "Người dùng Abond - Nhận thông tin về trái phiếu";
-        let BodyMail = "Họ tên: " + $("#name").val() + "\n";
-        BodyMail += "Số điện thoại: " + $("#phone").val() + "\n";
-        BodyMail += "Email: " + $("#email").val() + "\n";
-        BodyMail += "Nội dung: " + $("#contentText").val();
+
+        if (!name || !phone) {
+            swal("Lỗi", "Họ tên và số điện thoại là bắt buộc.", "error");
+            HideLoadingScreen();
+            return;
+        }
+        let mail_regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (mail_regex.test(email) == false) {
+            swal("Lỗi", "Email bạn vừa nhập không hợp lệ", "error");
+            HideLoadingScreen();
+            return;
+        }
+        let vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+        if (vnf_regex.test(phone) == false) {
+            swal("Lỗi", "Số điện thoại bạn vừa nhập không hợp lệ.", "error");
+            HideLoadingScreen();
+            return;
+        }
+
+
+        let BodyMail = "Họ tên: " + name + "\n";
+        BodyMail += "Số điện thoại: " + phone + "\n";
+        BodyMail += "Email: " + email + "\n";
+        BodyMail += "Nội dung: " + content;
 
         let info = JSON.stringify({
             To: ToMail,
@@ -297,5 +322,13 @@
                 swal("Lỗi", "Gửi thông tin không thành công, vui lòng kiểm tra lại thông tin", "error");
             }
         });
+    });
+
+    $("#btnRegBuyNow").click(function () {
+        $("#register_buynow .register").css({ "transform": "translateX(0px)" });
+    });
+
+    $("#closeformRegister").click(function () {
+        $("#register_buynow .register").css({ "transform": "translateX(300px)" });
     });
 });

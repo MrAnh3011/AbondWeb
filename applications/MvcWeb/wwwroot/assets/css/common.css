@@ -266,9 +266,12 @@ a:hover {
   background: linear-gradient(to left, #fff 34%, #254099 65%);
   background-position: right bottom;
   background-size: 300% 100%;
-  position: absolute;
-  top: 70%;
-  left: 20%;
+}
+
+.link-barner {
+    position: absolute;
+    top: 70%;
+    left: 20%;
 }
 
 .link:hover {
@@ -347,6 +350,8 @@ a:hover {
 
 #home_content {
   min-height: 300px;
+  position: relative;
+  padding-top: 235px;
 }
 
 .section_title {
@@ -371,26 +376,45 @@ a:hover {
   display: inline-block;
 }
 
+#intro {
+    position: absolute;
+    top: -90px;
+    display: flex;
+    justify-content: center;
+}
+
+#intro .mar0{
+    position: absolute;
+    width: 80%;
+    background: #fff;
+    box-shadow: 0px 0px 100px -30px #0000ff;
+}
+
 #intro .intro {
-  padding: 40px 40px;
+  margin: 40px 0px;
+  padding: 0px 80px;
   color: #fff;
-  margin: 0;
-  height: 250px;
+  height: 190px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-right: 2px solid #ededed;
+}
+
+#intro .intro:last-child {
+    border: none;
 }
 
 #intro .estate {
-  background-image: url("../images/estate.png");
+  background: #fff
 }
 
 #intro .invest {
-  background-image: url("../images/invest.png");
+  background: #fff
 }
 
 #intro .brand {
-  background-image: url("../images/brand.png");
+  background: #fff;
 }
 
 #intro .intro_info {
@@ -399,15 +423,22 @@ a:hover {
 
 #intro .intro_info h3 {
   font-weight: bold;
-  margin-bottom: 25px;
+  margin: 15px 0px 7px 0px;
+  color: #000;
 }
 
 #intro .intro_info p {
   margin-bottom: 5px;
+  color: #000;
 }
 
 #why {
   padding: 50px 0;
+}
+
+#why > div > h2 > img {
+    width: 100%;
+    height: auto;
 }
 
 #why .why_grid {
@@ -448,6 +479,7 @@ a:hover {
 
 #why_choose .why_choose .why_choose_row_top .why_choose_left {
   padding: 0;
+  background: #000;
 }
 
 #why_choose .why_choose .why_choose_row_top .why_choose_right {
@@ -921,7 +953,7 @@ a:hover {
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 60px;
+  font-size: 50px;
   text-align: center;
 }
 
@@ -1435,6 +1467,11 @@ a:hover {
   max-width: 47%;
 }
 
+#news .news_article .news_thumb img{
+    height: 240px;
+    width: 100%;
+}
+
 #news .news_article .news_content {
   background: #fff;
   padding: 15px;
@@ -1474,6 +1511,11 @@ a:hover {
   padding: 15px 0;
   text-align: justify;
   border-bottom: 1px solid #cccccc;
+}
+
+.most_view .most_view_list .most_article img {
+    width: 100%;
+    height: 60px;
 }
 
 .most_view .most_view_list .most_article:last-child {
@@ -2371,4 +2413,85 @@ a:hover {
     100% {
         transform: rotate(360deg);
     }
+}
+
+#register_buynow {
+    position: fixed;
+    right: -55px;
+    top: 30%;
+    z-index: 99;
+}
+
+#register_buynow .facebook-abond a {
+    margin: auto;
+    font-size: 20px;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    background: #254099;
+    border-radius: 5px;
+    display: flex;
+}
+
+#register_buynow .facebook-abond a svg{
+    margin: auto;
+}
+
+#register_buynow .register-now {
+    float: left;
+    height: 50px;
+    background: #254099;
+    transform: rotate(-90deg);
+    margin-top: 63px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#register_buynow .register-now p {
+    font-weight: bold;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+#register_buynow .register {
+  border-radius: 10px;
+  background: #254099;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-top: 3px;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  width: 300px;
+  right: 0;
+  transform: translateX(300px);
+  transition: all 0.5s;
+}
+
+#register_buynow .register span {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#register_buynow .register #closeformRegister {
+    float: right;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#register_buynow .register input.form-control,
+#register_buynow .register textarea.form-control {
+  margin: 20px 0;
+}
+
+#register_buynow .register button {
+  padding: 5px 30px;
+  color: #fff;
+  background: #e96f20;
+  border: 1px solid #fff;
 }

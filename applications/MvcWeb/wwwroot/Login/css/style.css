@@ -269,17 +269,17 @@ span.login-color {
     }
 
 .header-left-bottom #btnlogin {
-    background: #ff3366;
+    background: #aa0000;
     color: #FFFF;
     width: 45%;
     margin-right: 10%;
     float: left;
 }
 
-    .header-left-bottom #btnlogin:hover {
-        background: #FFFF;
-        color: #ff3366;
-    }
+.header-left-bottom #btnlogin:hover {
+    background: #FFFF;
+    color: #aa0000;
+}
 
 .btnReg {
     font-size: 26px;
@@ -299,22 +299,22 @@ span.login-color {
     width: 100%;
 }
 
-    .btnReg:hover {
-        background: #ff3366;
-        color: #FFFF;
-    }
+.btnReg:hover {
+    background: #ff3366;
+    color: #FFFF;
+}
 
 .header-left-bottom #btnregister {
     background: #ffff;
-    color: #ff3366;
+    color: #aa0000;
     width: 45%;
 }
 
-    .header-left-bottom #btnregister:hover {
-        background: #ff3366;
-        color: #FFFF;
-        width: 45%;
-    }
+.header-left-bottom #btnregister:hover {
+    background: #aa0000;
+    color: #FFFF;
+    width: 45%;
+}
 
 .remember {
     margin: 1em 0em;

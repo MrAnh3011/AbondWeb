@@ -30,21 +30,12 @@ namespace MvcWeb.Models.Regions
         public HtmlField Body { get; set; }
 
         [Field]
-        public ImageField Image { get; set; }
+        public StringField LinkVideo { get; set; }
+
+        [Field(Options = FieldOption.HalfWidth)]
+        public StringField Link { get; set; }
 
         [Field]
-        public VideoField Video { get; set; }
-
-        [Field(Options = FieldOption.HalfWidth)]
-        public StringField TitleLink1 { get; set; }
-
-        [Field(Options = FieldOption.HalfWidth)]
-        public StringField Link1 { get; set; }
-
-        [Field(Options = FieldOption.HalfWidth)]
-        public StringField TitleLink2 { get; set; }
-
-        [Field(Options = FieldOption.HalfWidth)]
-        public StringField Link2 { get; set; }
+        public ImageField Image { get; set; }
     }
 }

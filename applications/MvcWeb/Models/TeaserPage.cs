@@ -35,9 +35,11 @@ namespace MvcWeb.Models
         [Region(Display = RegionDisplayMode.Full, Title = "Bạn có biết 2", ListTitle = "Bạn có biết 2", ListPlaceholder = "Bạn có biết 2")]
         public Teaser DoYouKnow2 { get; set; }
 
+        [Region(Display = RegionDisplayMode.Full, Title = "Bcb 2 Body", ListTitle = "Bcb 2 Body", ListPlaceholder = "Bcb 2 Body")]
+        public IList<StringField> BodyDoyouKnow { get; set; }
 
         [Region(Display = RegionDisplayMode.Full, Title = "Quy trình đặt mua", ListTitle = "Quy trình đặt mua", ListPlaceholder = "Quy trình đặt mua")]
-        public IList<Teaser> OrderProcess { get; set; }
+        public IList<BuyProcess> OrderProcess { get; set; }
 
 
         [Region(Display = RegionDisplayMode.Full, Title = "Dịch vụ miễn phí", ListTitle = "Dịch vụ miễn phí", ListPlaceholder = "Dịch vụ miễn phí")]
@@ -57,6 +59,6 @@ namespace MvcWeb.Models
 
 
         [Region(Display = RegionDisplayMode.Full, Title = "Slide Logo", ListTitle = "Slide Logo", ListPlaceholder = "Slide Logo")]
-        public IList<ImageField> lstLogo { get; set; }
+        public IList<Banner> lstLogo { get; set; }
     }
 }
