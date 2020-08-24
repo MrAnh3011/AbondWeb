@@ -64,7 +64,14 @@
                                                 </h6>
                                             </a>
                                             <p class="most_view_excerpt">
-                                                @excerpt.Substring(0, excerpt.Length - 4)
+                                                @if (excerpt.Length > 60)
+                                                {
+                                                    @(excerpt.Substring(0, 60) + "...")
+                                                }
+                                                else
+                                                {
+                                                    @excerpt
+                                                }
                                             </p>
                                         </div>
                                     </div>
@@ -90,7 +97,17 @@
                                             </h6>
                                         </a>
                                         <p class="most_view_excerpt">
-                                            @(item.Post.Excerpt.Substring(0,60) + "...")
+                                            @{
+                                                string excerpt = item.Post.Excerpt ?? "";
+                                                if (excerpt.Length < 60)
+                                                {
+                                                    @excerpt
+                                                }
+                                                else
+                                                {
+                                                    @(excerpt.Substring(0, 60) + "...")
+                                                }
+                                            }
                                         </p>
                                     </div>
                                 </div>

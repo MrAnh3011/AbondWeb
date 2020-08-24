@@ -4,6 +4,9 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+body{
+    font-size: 14px;
+}
 
 @font-face {
   font-family: "SVNGilroy";
@@ -255,29 +258,31 @@ a:hover {
 }
 
 .link {
-  color: #254099;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-weight: bold;
-  display: inline-block;
-  -webkit-transition: all 0.75s;
-  transition: all 0.75s;
-  background: -webkit-gradient(linear, right top, left top, color-stop(34%, #fff), color-stop(65%, #254099));
-  background: linear-gradient(to left, #fff 34%, #254099 65%);
-  background-position: right bottom;
-  background-size: 300% 100%;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    display: inline-block;
+    -webkit-transition: all 0.75s;
+    transition: all 0.75s;
+    border: 1px solid #FFF;
+    background: -webkit-gradient(linear, right top, left top, color-stop(34%, #fff), color-stop(65%, #254099));
+    background: linear-gradient(to left, #254099 34%, #fff 65%);
+    background-position: right bottom;
+    background-size: 300% 100%;
 }
 
 .link-barner {
     position: absolute;
-    top: 70%;
-    left: 20%;
+    top: 65%;
+    left: 24%;
 }
 
 .link:hover {
-  text-decoration: none;
-  background-position: left bottom !important;
-  color: #fff;
+    text-decoration: none;
+    background-position: left bottom !important;
+    color: #254099;
+    border: 1px solid #254099;
 }
 
 #slick-prev {
@@ -315,7 +320,7 @@ a:hover {
   position: relative;
 }
 
-#slide .item .slide_caption {
+/*#slide .item .slide_caption {
   position: absolute;
   top: 0;
   z-index: 30;
@@ -327,7 +332,7 @@ a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
+}*/
 
 #slide .item .slide_caption .pad15 {
   padding: 0 15px;
@@ -351,7 +356,6 @@ a:hover {
 #home_content {
   min-height: 300px;
   position: relative;
-  padding-top: 235px;
 }
 
 .section_title {
@@ -375,26 +379,24 @@ a:hover {
   background: #254099;
   display: inline-block;
 }
+#intro > div {
+    position: relative;
+}
 
-#intro {
+#intro .mar0 {
     position: absolute;
-    top: -90px;
+    background: #fff;
+    box-shadow: 0px 0px 50px -30px #0943ae;
+    top: -100px;
     display: flex;
     justify-content: center;
 }
 
-#intro .mar0{
-    position: absolute;
-    width: 80%;
-    background: #fff;
-    box-shadow: 0px 0px 100px -30px #0000ff;
-}
-
 #intro .intro {
-  margin: 40px 0px;
-  padding: 0px 80px;
+  margin: 30px 0px;
+  padding: 0px 60px;
   color: #fff;
-  height: 190px;
+  height: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -419,9 +421,10 @@ a:hover {
 
 #intro .intro_info {
   padding: 0;
+  text-align: center;
 }
 
-#intro .intro_info h3 {
+#intro .intro_info h4 {
   font-weight: bold;
   margin: 15px 0px 7px 0px;
   color: #000;
@@ -433,7 +436,8 @@ a:hover {
 }
 
 #why {
-  padding: 50px 0;
+  padding: 0;
+  margin-top: 200px;
 }
 
 #why > div > h2 > img {
@@ -456,30 +460,41 @@ a:hover {
 
 #why_choose {
   position: relative;
-  background-image: url("../images/doyouknow.png");
+  background-image: url("../images/bgrwhyabond.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 100px 0 70px;
+  margin: 100px 0 20px;
   width: 100%;
-  height: 900px;
+  height: 1170px;
+}
+
+#why_choose > div{
+    position: relative;
 }
 
 #why_choose .why_choose {
   position: absolute;
   top: -80px;
+  left: 0;
   z-index: 10;
+  margin: auto;
+  padding: 0px 15px;
 }
 
 #why_choose .why_choose .why_choose_row_top,
 #why_choose .why_choose .why_choose_row_bot {
-  max-width: 60%;
   margin: 0 auto;
 }
 
 #why_choose .why_choose .why_choose_row_top .why_choose_left {
   padding: 0;
   background: #000;
+}
+
+#why_choose .why_choose .why_choose_row_top .why_choose_left iframe{
+    width: 100%;
+    height: 570px;
 }
 
 #why_choose .why_choose .why_choose_row_top .why_choose_right {
@@ -500,14 +515,15 @@ a:hover {
 #why_choose .why_choose .why_choose_row_top .why_choose_right .link {
   margin-top: 30px;
   color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid #254099;
   background: -webkit-gradient(linear, right top, left top, color-stop(34%, #000), color-stop(65%, #254099));
-  background: linear-gradient(to left, #000 34%, #254099 65%);
+  background: linear-gradient(to left, #254099 34%, #ffF 65%);
   background-position: right bottom;
   background-size: 300% 100%;
 }
 
 #why_choose .why_choose .why_choose_row_top .why_choose_right .link:hover {
+  color: #254099;
   border: 1px solid #254099;
 }
 
@@ -622,6 +638,18 @@ a:hover {
   padding: 0 25px;
 }
 
+#bonds .bonds_row .bonds_grid .bonds_grid_content button {
+    background : #254099;
+    border: 1px solid #254099;
+    margin-bottom : 20px;
+}
+
+#bonds .bonds_row .bonds_grid .bonds_grid_content button:hover{
+    background : #FFF;
+    border: 1px solid #254099;
+    color: #254099;
+}
+
 #bonds .bonds_row .bonds_grid .bonds_grid_content .bonds_grid_content_top {
   border-bottom: 1px solid #cccccc;
 }
@@ -672,6 +700,43 @@ a:hover {
   margin: 7px 0;
 }
 
+#buyNowModal .modal-content {
+    background: #e96f20;
+}
+
+#buyNowModal .modal-content .modal-header {
+    color: #fff;
+    border-bottom: none;
+}
+
+#buyNowModal .modal-content .modal-body .form-control {
+    margin: 20px 0;
+}
+
+#buyNowModal .modal-content .modal-body .form-control:first-child {
+    margin-top: 0;
+}
+
+#buyNowModal .modal-content .modal-body .form-control:last-child {
+    margin-bottom: 0;
+}
+
+#buyNowModal .modal-content .modal-footer {
+    border-top: none;
+    justify-content: center;
+}
+
+#buyNowModal .modal-content .modal-footer button {
+    border: 1px solid #fff;
+    background: #e96f20;
+    color: #fff;
+    padding: .375rem 1.75rem
+}
+
+#buyNowModal .modal-content .modal-footer button:hover {
+    background: #9f3e00;
+}
+
 #tutorial {
   position: relative;
   padding: 50px 0;
@@ -686,7 +751,6 @@ a:hover {
   width: 100%;
   height: 100%;
   z-index: 15;
-  background-image: url("../images/tutorial_bg.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -771,6 +835,11 @@ a:hover {
   color: #fff;
 }
 
+#free .free_service img {
+    height: 380px;
+    width: 100%;
+}
+
 #free .free_service .free_service_content {
   padding: 20px;
   text-align: justify;
@@ -802,12 +871,16 @@ a:hover {
   background-color: #fff;
 }
 
+#mobilized .section_title {
+    margin-bottom: 20px;
+}
+
 #mobilized .mobilized_content {
   max-width: 80%;
   -webkit-box-shadow: 0px 2px 5px 5px #cccccc;
           box-shadow: 0px 2px 5px 5px #cccccc;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 30px 0;
 }
 
 #mobilized .mobilized_content .mobilized_content_grid {
@@ -879,6 +952,8 @@ a:hover {
 
 #comment .comment #comment_slide .item .comment_content h3 img {
   margin: 0 auto;
+  width: 333px;
+  height: 222px;
 }
 
 #comment .comment #comment_slide .item .comment_content p {
@@ -926,9 +1001,12 @@ a:hover {
   cursor: pointer;
 }
 
+#sldLogoNews {
+    background: #f9f9f9;
+}
+
 #partner {
-  background: #f9f9f9;
-  padding: 50px 0;
+    padding-bottom: 40px;
 }
 
 #partner .item {
@@ -1009,6 +1087,7 @@ a:hover {
 
 #manager .manager_item .manager_item_img img {
   width: 100%;
+  height: 240px;
 }
 
 #manager .manager_item .manager_item_text {
@@ -1325,6 +1404,16 @@ a:hover {
   margin: 30px 0;
 }
 
+#page_bonds .main_content .example button {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    background: #e96f20;
+    border: none;
+    padding: 5px 30px;
+
+}
+
 #page_bonds .main_content .example h5 {
   color: #254099;
   font-weight: bold;
@@ -1353,6 +1442,15 @@ a:hover {
 #page_bonds .main_content .bonds_how {
   background-color: #f8f8f8;
   padding: 30px;
+}
+
+#page_bonds .main_content .bonds_how button {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    background: #254099;
+    border: none;
+    padding: 5px 30px;
 }
 
 #page_bonds .main_content .bonds_how h5 {
@@ -1691,6 +1789,10 @@ a:hover {
   border-bottom: none;
 }
 
+#question #accordion .card .card-header h5 button {
+    text-align: left;
+}
+
 #question #accordion .card .btn-link:hover,
 #question #accordion .card .btn-link:focus {
   text-decoration: none;
@@ -1849,6 +1951,7 @@ a:hover {
   #header_menu_mb,
   .search_mb {
     display: block;
+    padding-top: 41px;
   }
   #header_login {
     position: relative;
@@ -1910,8 +2013,23 @@ a:hover {
   #slide #slick-prev {
     left: 1%;
   }
+  #intro .mar0 {
+    position: relative;
+    background: #fff;
+    box-shadow: 0px 0px 50px -30px #0943ae;
+    display: flex;
+    justify-content: center;
+    top: 30px;
+}
   #intro .intro img {
     margin-top: 5px;
+  }
+  .link-barner{
+      top: 60%;
+      left: 20%;
+  }
+  #why {
+      margin-top: 50px;
   }
   #why .why_grid {
     margin: 10px 0;
@@ -1925,6 +2043,10 @@ a:hover {
   #why_choose .why_choose {
     position: unset;
     top: 0;
+  }
+  #why_choose .why_choose .why_choose_row_top .why_choose_left iframe{
+    width: 100%;
+    height: 355px;
   }
   #why_choose .why_choose .why_choose_row_top,
   #why_choose .why_choose .why_choose_row_bot {
@@ -2089,6 +2211,7 @@ a:hover {
   #header_menu_mb,
   .search_mb {
     display: block;
+    padding-top: 41px;
   }
   #header_login {
     position: relative;
@@ -2152,6 +2275,21 @@ a:hover {
   }
   #intro .intro img {
     margin-top: 5px;
+  }
+  #intro .mar0 {
+    position: relative;
+    background: #fff;
+    box-shadow: 0px 0px 50px -30px #0943ae;
+    display: flex;
+    justify-content: center;
+    top: 30px;
+  }
+  .link-barner{
+      top: 60%;
+      left: 20%;
+  }
+  #why {
+    margin-top: 50px;
   }
   #why .why_grid {
     margin: 10px 0;
@@ -2417,8 +2555,8 @@ a:hover {
 
 #register_buynow {
     position: fixed;
-    right: -55px;
-    top: 30%;
+    right: -42px;
+    top: 20%;
     z-index: 99;
 }
 
@@ -2426,10 +2564,11 @@ a:hover {
     margin: auto;
     font-size: 20px;
     color: #fff;
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     background: #254099;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius : 5px;
     display: flex;
 }
 
@@ -2439,11 +2578,12 @@ a:hover {
 
 #register_buynow .register-now {
     float: left;
-    height: 50px;
+    height: 55px;
     background: #254099;
     transform: rotate(-90deg);
     margin-top: 63px;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius : 5px;
     padding: 10px;
 }
 
@@ -2494,4 +2634,10 @@ a:hover {
   color: #fff;
   background: #e96f20;
   border: 1px solid #fff;
+}
+
+.zalo-chat-widget {
+    bottom: 90px !important;
+    right: 20px !important;
+    z-index: 2147483645 !important;
 }

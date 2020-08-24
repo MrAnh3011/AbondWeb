@@ -142,6 +142,20 @@
         }]
     });
 
+    $("#activity_reality").slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        prevArrow: false,
+        nextArrow: false,
+        dots: false,
+        infinite: true,
+        cssEase: 'linear',
+        draggable: true,
+        variableWidth: true
+    });
+
     $("#respMenu").aceResponsiveMenu({
         resizeWidth: '768', // Set the same in Media query       
         animationSpeed: 'fast', //slow, medium, fast
@@ -269,7 +283,68 @@
         let name = $("#name").val();
         let phone = $("#phone").val();
         let email = $("#email").val();
-        let content = $("#contentText").val();
+        let content = $("#message").val();
+
+        let ToMail = $("#mailReceiver").text();
+        let SubjectMail = "Người dùng Abond - Nhận thông tin về trái phiếu";
+
+        if (!name || !phone) {
+            swal("Lỗi", "Họ tên và số điện thoại là bắt buộc.", "error");
+            HideLoadingScreen();
+            return;
+        }
+        let mail_regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (mail_regex.test(email) == false) {
+            swal("Lỗi", "Email bạn vừa nhập không hợp lệ", "error");
+            HideLoadingScreen();
+            return;
+        }
+        let vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+        if (vnf_regex.test(phone) == false) {
+            swal("Lỗi", "Số điện thoại bạn vừa nhập không hợp lệ.", "error");
+            HideLoadingScreen();
+            return;
+        }
+
+
+        let BodyMail = "Họ tên: " + name + "\n";
+        BodyMail += "Số điện thoại: " + phone + "\n";
+        BodyMail += "Email: " + email + "\n";
+        BodyMail += "Nội dung: " + content;
+
+        let info = JSON.stringify({
+            To: ToMail,
+            Subject: SubjectMail,
+            Body: BodyMail
+        });
+
+        $.ajax({
+            url: "/api/sendmail",
+            data: info,
+            dataType: "json",
+            type: "POST",
+            contentType: "application/json",
+            success: function (response) {
+                HideLoadingScreen();
+                if (response.status == "success")
+                    swal("Thành công", "Đã gửi thông tin thành công, bạn sẽ được nhận thông tin mới nhất về những sản phẩm của chúng tôi", "success");
+                else
+                    swal("Lỗi", "Gửi thông tin không thành công, vui lòng kiểm tra lại thông tin", "error");
+            },
+            error: function (response) {
+                HideLoadingScreen();
+                swal("Lỗi", "Gửi thông tin không thành công, vui lòng kiểm tra lại thông tin", "error");
+            }
+        });
+    });
+
+    $("#regBuyBonds").click(function () {
+        debugger;
+        ShowLoadingScreen();
+        let name = $("#nameBonds").val();
+        let phone = $("#phoneBonds").val();
+        let email = $("#emailBonds").val();
+        let content = $("#messageBonds").val();
 
         let ToMail = $("#mailReceiver").text();
         let SubjectMail = "Người dùng Abond - Nhận thông tin về trái phiếu";

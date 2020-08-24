@@ -14,13 +14,13 @@ namespace MvcWeb.Models.Regions
         public StringField Title { get; set; }
 
         [Field(Options = FieldOption.HalfWidth)]
-        public StringField CompletedYear { get; set; }
+        public StringField Address { get; set; }
 
         [Field(Options = FieldOption.HalfWidth)]
-        public StringField Location { get; set; }
+        public StringField Phone { get; set; }
 
         [Field(Options = FieldOption.HalfWidth)]
-        public StringField Progress { get; set; }
+        public StringField Email { get; set; }
 
         [Field]
         public HtmlField Body { get; set; }

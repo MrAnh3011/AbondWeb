@@ -1118,3 +1118,26 @@ span.sin-color {
     color: #fff;
     float:left;
 }
+
+.back-home {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.back-home a img {
+    padding: 7px;
+    border-radius: 50%;
+    background: #FFF;
+}
+
+.back-home a span {
+    color: #fff;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.back-home a {
+    display: flex;
+    align-items: center;
+}

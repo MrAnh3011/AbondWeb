@@ -35,30 +35,48 @@ namespace MvcWeb.Models
         [Region(Display = RegionDisplayMode.Full, Title = "Bạn có biết 2", ListTitle = "Bạn có biết 2", ListPlaceholder = "Bạn có biết 2")]
         public Teaser DoYouKnow2 { get; set; }
 
+
         [Region(Display = RegionDisplayMode.Full, Title = "Bcb 2 Body", ListTitle = "Bcb 2 Body", ListPlaceholder = "Bcb 2 Body")]
         public IList<StringField> BodyDoyouKnow { get; set; }
 
+
+        [Region(Display = RegionDisplayMode.Full, Title = "Quy trình đặt mua BG", ListTitle = "Quy trình đặt mua BG", ListPlaceholder = "Quy trình đặt mua BG")]
+        public ImageField OrderProcessImg { get; set; }
+
+
         [Region(Display = RegionDisplayMode.Full, Title = "Quy trình đặt mua", ListTitle = "Quy trình đặt mua", ListPlaceholder = "Quy trình đặt mua")]
         public IList<BuyProcess> OrderProcess { get; set; }
+
+
+        [Region(Display = RegionDisplayMode.Full, Title = "Dịch vụ miễn phí Header", ListTitle = "Dịch vụ miễn phí Header", ListPlaceholder = "Dịch vụ miễn phí Header")]
+        public TextItems FreeServicesHeader { get; set; }
 
 
         [Region(Display = RegionDisplayMode.Full, Title = "Dịch vụ miễn phí", ListTitle = "Dịch vụ miễn phí", ListPlaceholder = "Dịch vụ miễn phí")]
         public IList<Teaser> FreeServices { get; set; }
 
 
+        [Region(Display = RegionDisplayMode.Full, Title = "Đã huy động Header", ListTitle = "Đã huy động Header", ListPlaceholder = "Đã huy động Header")]
+        public TextItems WeDoHeader { get; set; }
+
+
         [Region(Display = RegionDisplayMode.Full, Title = "Đã huy động", ListTitle = "Đã huy động", ListPlaceholder = "Đã huy động")]
         public IList<TextItems> WeDo { get; set; }
-
-
-        [Region(Display = RegionDisplayMode.Full, Title = "Trích dẫn", ListTitle = "Trích dẫn", ListPlaceholder = "Trích dẫn")]
-        public Teaser Quote { get; set; }
 
 
         [Region(Display = RegionDisplayMode.Full, Title = "Ý kiến khách hàng", ListTitle = "Ý kiến khách hàng", ListPlaceholder = "Ý kiến khách hàng")]
         public IList<Slide> CustomerFeedback { get; set; }
 
 
+        [Region(Display = RegionDisplayMode.Full, Title = "Slide Logo Header", ListTitle = "Slide Logo Header", ListPlaceholder = "Slide Logo Header")]
+        public TextItems lstLogoHeader { get; set; }
+
+
         [Region(Display = RegionDisplayMode.Full, Title = "Slide Logo", ListTitle = "Slide Logo", ListPlaceholder = "Slide Logo")]
         public IList<Banner> lstLogo { get; set; }
+
+
+        [Region(Display = RegionDisplayMode.Full, Title = "Receiver mail", ListTitle = "Receiver mail", ListPlaceholder = "Receiver mail")]
+        public StringField Receiver {get;set;}
     }
 }

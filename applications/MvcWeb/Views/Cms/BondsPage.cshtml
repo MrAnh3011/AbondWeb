@@ -34,13 +34,12 @@
                         }
                     </div>
                     <div class="help fw">
-                        <h6>Cần trợ giúp?</h6>
+                        <h6>@Model.NeedHelp.Title</h6>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae exercitationem
-                            iusto tempore dicta quia rem aliquam, id dignissimos minus inventore!
+                            @Model.NeedHelp.Description
                         </p>
-                        <p><i class="fas fa-paper-plane"></i> bondservice@apec.com.vn</p>
-                        <p><i class="fas fa-phone-alt"></i> 0963.513.355</p>
+                        <p><i class="fas fa-paper-plane"></i> @Model.NeedHelp.Email</p>
+                        <p><i class="fas fa-phone-alt"></i> @Model.NeedHelp.Phone</p>
                     </div>
                     <div class="register fw">
                         <h5>Nhận thông tin</h5>
@@ -98,6 +97,8 @@
                     <div class="example">
                         <h5>Ví dụ</h5>
                         @Html.Raw(Model.Example)
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyNowModal">Mua ngay</button>
                     </div>
 
                     <div class="bonds_how">
@@ -115,7 +116,37 @@
                                 </div>
                             </div>
                         }
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyNowModal">Mua ngay</button>
                     </div>
+                    <div class="modal fade" id="buyNowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="exampleModalLabel">ĐĂNG KÝ MUA NGAY</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="text" class="form-control" name="name" id="nameBonds" placeholder="Họ tên">
+
+                                    <input type="text" class="form-control" name="phone" id="phoneBonds"
+                                           placeholder="Điện thoại">
+
+                                    <input type="text" class="form-control" name="email" id="emailBonds" placeholder="Email">
+
+                                    <textarea class="form-control" name="message" id="messageBonds"
+                                              placeholder="Nội dung"></textarea>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="regBuyBonds" class="btn btn-warning">Gửi đi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

@@ -25,7 +25,7 @@
             <div class="news_slide">
                 @foreach (var item in Model.SlidePost)
                 {
-                    string excerpt = item.Post.Excerpt;
+                    string excerpt = item.Post.Excerpt ?? "";
                     <div class="item">
                         <div class="news_image">
                             <img class="img-fluid" src="@(item.Post.PrimaryImage.Media.PublicUrl.Substring(1)??"")" alt="">
@@ -39,7 +39,14 @@
                                     <h2 class="news_slide_title">@item.Post.Title</h2>
                                 </a>
                                 <p class="news_slide_excerpt">
-                                    @excerpt.Substring(0, excerpt.Length - 4)
+                                    @if (excerpt.Length > 60)
+                                    {
+                                        @(excerpt.Substring(0, 60) + "...")
+                                    }
+                                    else
+                                    {
+                                        @excerpt
+                                    }
                                 </p>
                                 <a href="@item.Post.Permalink" class="link">Xem chi tiết</a>
                             </div>
@@ -86,7 +93,7 @@
                                     <div class="col-sm-4 col-lg-3 pad0">
                                         <a href="@item.Post.Permalink   ">
                                             <img class="img-fluid"
-                                                 src="@(item.Post.PrimaryImage.Media.PublicUrl.Substring(1)??"")" alt="">
+                                                 src="@(item.Post.PrimaryImage.Media.PublicUrl.Substring(1) ?? "")" alt="">
                                         </a>
                                     </div>
                                     <div class="col-sm-8 col-lg-9">
@@ -96,7 +103,17 @@
                                             </h6>
                                         </a>
                                         <p class="most_view_excerpt">
-                                            @(item.Post.Excerpt.Substring(0,60) + "...")
+                                            @{
+                                                string excerpt = item.Post.Excerpt ?? "";
+                                                if (excerpt.Length < 60)
+                                                {
+                                                    @excerpt
+                                                }
+                                                else
+                                                {
+                                                    @(excerpt.Substring(0, 60) + "...")
+                                                }
+                                            }
                                         </p>
                                     </div>
                                 </div>

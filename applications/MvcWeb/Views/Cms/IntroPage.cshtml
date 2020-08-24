@@ -90,13 +90,15 @@
             <h2>Hoạt động thực tế</h2>
             <span class="line"></span>
         </div>
-        <div class="activity">
-            @foreach (var item in Model.RealDo)
-            {
-                <div class="item">
-                    <img class="img-fluid" src="@(item.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt="">
-                </div>
-            }
+        <div class="">
+            <div id="activity_reality">
+                @foreach (var item in Model.RealDo)
+                {
+                    <a href="@item.Title.Value">
+                        <img class="img-fluid" src="@(item.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt="">
+                    </a>
+                }
+            </div>
         </div>
     </section>
 </section>

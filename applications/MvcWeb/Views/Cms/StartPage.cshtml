@@ -12,7 +12,7 @@
     </div>
     <div class="register-now">
         <p id="btnRegBuyNow">
-            Đăng ký mua ngay
+            Đăng ký tư vấn
         </p>
     </div>
     <div class="register">
@@ -42,7 +42,7 @@
             <div class="slide_caption">
                 <div class="container">
                     <div class="pad15">
-                        <a class="link link-barner" href="@item.Title">@item.SubTitle</a>
+                        <a class="link link-barner" href="@item.Title.Value">@item.SubTitle</a>
                     </div>
                 </div>
             </div>
@@ -52,30 +52,32 @@
 
 <section id="home_content" class="fw">
     <section id="intro" class="fw">
-        <div class="row mar0">
-            <div class="col-lg-4 row intro estate">
-                <div class="col-12 col-lg-12 intro_info">
-                    <img src="~/assets/images/tich-luy-ts.png" class="img-fluid" alt="">
-                    <h3>Tích lũy tài sản</h3>
-                    <p>Lãi suất cạnh tranh</p>
-                    <p>Dòng tiền trả lãi ổn định</p>
-                    <p>Sức mạnh lãi suất kép</p>
+        <div class="container">
+            <div class="row mar0">
+                <div class="col-lg-4 row intro estate">
+                    <div class="col-12 col-lg-12 intro_info">
+                        <img src="~/assets/images/tich-luy-ts.png" class="img-fluid" alt="">
+                        <h4>Tích lũy tài sản</h4>
+                        <p>Lãi suất cạnh tranh</p>
+                        <p>Dòng tiền trả lãi ổn định</p>
+                        <p>Sức mạnh lãi suất kép</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 row intro invest">
-                <div class="col-12 col-lg-12 intro_info">
-                    <img src="~/assets/images/dau-tu-lh.png" class="img-fluid" alt="">
-                    <h3>Đầu tư linh hoạt</h3>
-                    <p>Sản phẩm trái phiếu an toàn với cam kết và bảo lãnh mua lại gốc tại bất kỳ thời điểm</p>
+                <div class="col-lg-4 row intro invest">
+                    <div class="col-12 col-lg-12 intro_info">
+                        <img src="~/assets/images/dau-tu-lh.png" class="img-fluid" alt="">
+                        <h4>Đầu tư linh hoạt</h4>
+                        <p>Sản phẩm trái phiếu an toàn với cam kết và bảo lãnh mua lại gốc tại bất kỳ thời điểm</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 row intro brand">
-                <div class="col-12 col-lg-12 intro_info">
-                    <img src="~/assets/images/thuong-hieu-ut.png" class="img-fluid" alt="">
-                    <h3>Thương hiệu uy tín</h3>
-                    <p>
-                        Trái phiếu do Doanh nghiệp đạt chuẩn điều kiện niêm yết phát hành và được Abond thẩm định
-                    </p>
+                <div class="col-lg-4 row intro brand">
+                    <div class="col-12 col-lg-12 intro_info">
+                        <img src="~/assets/images/thuong-hieu-ut.png" class="img-fluid" alt="">
+                        <h4>Thương hiệu uy tín</h4>
+                        <p>
+                            Trái phiếu do Doanh nghiệp đạt chuẩn điều kiện niêm yết phát hành và được Abond thẩm định
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,7 +85,7 @@
 
     <section id="why" class="fw">
         <div class="container">
-            <h2 class="text-center"><img class="img-fluid" src="assets/images/why.jpg" alt=""></h2>
+            <h2 class="text-center"><img class="img-fluid" src="~/assets/images/whychooseabond.png" alt=""></h2>
             <div class="section_title">
                 <h2>Tại sao lựa chọn kênh đầu tư trái phiếu?</h2>
                 <span class="line"></span>
@@ -114,33 +116,35 @@
     </section>
 
     <section id="why_choose" class="fw">
-        <div class="why_choose fw">
-            <div class="row why_choose_row_top">
-                <div class="col-12 col-sm-6 col-lg-6 why_choose_left">
-                    <iframe width="456" height="456" src="@Model.DoYouKnow1.LinkVideo.Value"
-                            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
+        <div class="container">
+            <div class="why_choose fw">
+                <div class="row why_choose_row_top">
+                    <div class="col-12 col-sm-6 col-lg-6 why_choose_left">
+                        <iframe src="@Model.DoYouKnow1.LinkVideo.Value"
+                                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
                             picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-6 why_choose_right">
+                        <h6>@Model.DoYouKnow1.HeaderTitle</h6>
+                        <h2>@Model.DoYouKnow1.Title</h2>
+                        @Html.Raw(Model.DoYouKnow1.Body)
+                        <a href="@Model.DoYouKnow1.Link.Value" class="link">Xem chi tiết</a>
+                    </div>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-6 why_choose_right">
-                    <h6>@Model.DoYouKnow1.HeaderTitle</h6>
-                    <h2>@Model.DoYouKnow1.Title</h2>
-                    @Html.Raw(Model.DoYouKnow1.Body)
-                    <a href="@Model.DoYouKnow1.Link.Value" class="link">Xem chi tiết</a>
-                </div>
-            </div>
-            <div class="row why_choose_row_bot">
-                <div class="col-12 col-sm-6 col-lg-6 why_choose_left">
-                    <h2>@Model.DoYouKnow2.Title</h2>
-                    <ul>
-                        @foreach (var item in Model.BodyDoyouKnow)
-                        {
-                            <li><i class="fas fa-check"></i>&emsp;@item</li>
-                        }
-                    </ul>
-                    <a href="@Model.DoYouKnow2.Link.Value" class="link">Xem chi tiết</a>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-6 why_choose_right">
-                    <img class="img-fluid" src="@(Model.DoYouKnow2.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
+                <div class="row why_choose_row_bot">
+                    <div class="col-12 col-sm-6 col-lg-6 why_choose_left">
+                        <h2>@Model.DoYouKnow2.Title</h2>
+                        <ul>
+                            @foreach (var item in Model.BodyDoyouKnow)
+                            {
+                                <li><i class="fas fa-check"></i>&emsp;@item</li>
+                            }
+                        </ul>
+                        <a href="@Model.DoYouKnow2.Link.Value" class="link">Xem chi tiết</a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-6 why_choose_right">
+                        <img class="img-fluid" src="@(Model.DoYouKnow2.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
+                    </div>
                 </div>
             </div>
         </div>
@@ -176,15 +180,15 @@
                             </div>
                             <div class="row">
                                 <!-- <input type="range" min="1" max="100" value="70" class="range_slider_input"
-                                    disabled style="width: 70%;"> -->
+                    disabled style="width: 70%;"> -->
                                 <div class="progress fw">
                                     <div class="progress-bar" style="width:0%"></div>
                                 </div>
                             </div>
                         </div>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyNowModal">Mua ngay</button>
                     </div>
                 </div>
-
                 <div class="col-12 col-md-6 col-lg-4 bonds_grid">
                     <div class="bonds_grid_img">
                         <img class="img-fluid" src="assets/images/bonds.jpg" style="width: 100%;" alt="">
@@ -208,12 +212,13 @@
                             </div>
                             <div class="row">
                                 <!-- <input type="range" min="1" max="100" value="70" class="range_slider_input"
-                                    disabled style="width: 70%;"> -->
+                    disabled style="width: 70%;"> -->
                                 <div class="progress fw">
                                     <div class="progress-bar" style="width:99%"></div>
                                 </div>
                             </div>
                         </div>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyNowModal">Mua ngay</button>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 bonds_grid">
@@ -239,10 +244,38 @@
                             </div>
                             <div class="row">
                                 <!-- <input type="range" min="1" max="100" value="70" class="range_slider_input"
-                                    disabled style="width: 70%;"> -->
+                    disabled style="width: 70%;"> -->
                                 <div class="progress fw">
                                     <div class="progress-bar" style="width:93%"></div>
                                 </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyNowModal">Mua ngay</button>
+                    </div>
+                </div>
+                <div class="modal fade" id="buyNowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="exampleModalLabel">ĐĂNG KÝ MUA NGAY</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" name="name" id="nameBonds" placeholder="Họ tên">
+
+                                <input type="text" class="form-control" name="phone" id="phoneBonds"
+                                       placeholder="Điện thoại">
+
+                                <input type="text" class="form-control" name="email" id="emailBonds" placeholder="Email">
+
+                                <textarea class="form-control" name="message" id="messageBonds"
+                                          placeholder="Nội dung"></textarea>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button id="regBuyBonds" class="btn btn-warning">Gửi đi</button>
                             </div>
                         </div>
                     </div>
@@ -252,6 +285,11 @@
     </section>
 
     <section id="tutorial" class="fw">
+        <style>
+            #tutorial:before {
+                background-image: url(@Model.OrderProcessImg.Media.PublicUrl.Substring(1));
+            }
+        </style>
         <div class="container">
             <h2 class="text-center">Quy trình đặt mua</h2>
             <div class="row mar0 tutorial">
@@ -277,8 +315,8 @@
 
     <section id="free" class="fw">
         <div class="section_title">
-            <h2>Miễn phí</h2>
-            <p>Chúng tôi cung cấp những dịch vụ miễn phí</p>
+            <h2>@Model.FreeServicesHeader.Title</h2>
+            <p>@Model.FreeServicesHeader.Describes</p>
             <span class="line"></span>
         </div>
         <div class="row mar0">
@@ -289,9 +327,12 @@
                     <div class="free_service_content">
                         <h3>@item.HeaderTitle</h3>
                         <p>
-                            @item.Body
+                            @Html.Raw(item.Body)
                         </p>
-                        <a href="@item.Link.Value" class="readmore">Xem chi tiết<i class="fas fa-arrow-right"></i></a>
+                        @if (item.Body != "")
+                        {
+                            <a href="@item.Link.Value" class="readmore">Xem chi tiết<i class="fas fa-arrow-right"></i></a>
+                        }
                     </div>
                 </div>
             }
@@ -301,8 +342,8 @@
     <section id="mobilized" class="fw">
         <div class="container">
             <div class="section_title">
-                <h2>Đã huy động</h2>
-                <p>Những gì chúng tôi đã làm</p>
+                <h2>@Model.WeDoHeader.Title</h2>
+                <p>@Model.WeDoHeader.Describes</p>
                 <span class="line"></span>
             </div>
             <div class="row mobilized_content">
@@ -313,22 +354,6 @@
                         <p>@item.Describes</p>
                     </div>
                 }
-            </div>
-        </div>
-    </section>
-
-    <section id="quote" class="fw">
-        <div class="row mar0">
-            <div class="col-lg-6 pad0">
-                <img src="@(Model.Quote.Image.Media.PublicUrl.Substring(1) ?? "")" class="img-fluid" alt="">
-            </div>
-            <div class="col-lg-6 quote_content">
-                <p><i class="fas fa-quote-left"></i></p>
-                <p>
-                    @Model.Quote.Body
-                </p>
-                <h5>@Model.Quote.HeaderTitle</h5>
-                <h6>@Model.Quote.Title</h6>
             </div>
         </div>
     </section>
@@ -358,16 +383,23 @@
         </div>
     </section>
 
-    <section id="partner" class="fw">
-        <div class="container">
-            <div id="partner_slide">
-                @foreach (var item in Model.lstLogo)
-                {
-                    <div class="item">
-                        <a href="@item.Title.Value"><img class="img-fluid" src="@(item.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt=""></a>
-                    </div>
-                }
+    <section id="sldLogoNews" class="fw">
+        <div class="section_title">
+            <h2>@Model.lstLogoHeader.Title</h2>
+            <span class="line"></span>
+        </div>
+        <div id="partner">
+            <div class="container">
+                <div id="partner_slide">
+                    @foreach (var item in Model.lstLogo)
+                    {
+                        <div class="item">
+                            <a href="@item.Title.Value"><img class="img-fluid" src="@(item.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt=""></a>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </section>
 </section>
+<div style="display:none" id="#mailReceiver">@Model.Receiver</div>
