@@ -16,7 +16,7 @@
         </p>
     </div>
     <div class="register">
-        <span>Đăng ký mua ngay</span>
+        <span>Đăng ký tư vấn</span>
         <span id="closeformRegister">X</span>
         <div>
             <input type="text" class="form-control" name="name" id="name" placeholder="Họ tên">
@@ -157,102 +157,39 @@
                 <span class="line"></span>
             </div>
             <div class="row mar0 bonds_row">
-                <div class="col-12 col-md-6 col-lg-4 bonds_grid">
-                    <div class="bonds_grid_img">
-                        <img class="img-fluid" src="assets/images/bonds.jpg" style="width: 100%;" alt="">
-                        <a href="#" class="readmore">Nhận thông tin <i class="fas fa-caret-right"></i></a>
-                    </div>
-                    <div class="bonds_grid_content">
-                        <div class="bonds_grid_content_top">
-                            <h4 class="bonds_title">Ibond_2020.17.10</h4>
-                            <p>Công ty cổ phẩn Đầu tư IDJ Việt Nam</p>
-                            <h2 class="percent">13%</h2>
-                            <p>Lãi suất năm | Kỳ hạn 3 năm</p>
+                @foreach (var item in Model.lstBonds4Sale)
+                {
+                    <div class="col-12 col-md-6 col-lg-4 bonds_grid">
+                        <div class="bonds_grid_img">
+                            <img class="img-fluid" src="@(item.BondsImage.Media.PublicUrl.Substring(1)?? "")" style="width: 100%;" alt="">
+                            <a href="@item.BondsDoc.Media.PublicUrl.Substring(1)" class="readmore">Nhận thông tin <i class="fas fa-caret-right"></i></a>
                         </div>
-                        <div class="bonds_grid_content_center">
-                            <p>Trả lãi: 3 tháng / lần</p>
-                            <p>Ngày phát hành: 05/10/2020</p>
-                        </div>
-                        <div class="bonds_grid_content_bottom fw">
-                            <div class="row">
-                                <span class="col-6 col-lg-6 bonds_grid_content_bottom_text">Đang nhận cọc</span>
-                                <span class="col-6 col-lg-6 bonds_grid_content_bottom_percent">0%</span>
+                        <div class="bonds_grid_content">
+                            <div class="bonds_grid_content_top">
+                                <h4 class="bonds_title">@item.BondsName</h4>
+                                <p>@item.BondsDescription</p>
+                                <h2 class="percent">@item.BondsPercent</h2>
+                                <p>@item.BondsPercentDes</p>
                             </div>
-                            <div class="row">
-                                <!-- <input type="range" min="1" max="100" value="70" class="range_slider_input"
-                    disabled style="width: 70%;"> -->
-                                <div class="progress fw">
-                                    <div class="progress-bar" style="width:0%"></div>
+                            <div class="bonds_grid_content_center">
+                                @Html.Raw(item.BondsDescription2)
+                            </div>
+                            <div class="bonds_grid_content_bottom fw">
+                                <div class="row">
+                                    <span class="col-6 col-lg-6 bonds_grid_content_bottom_text">Đang nhận cọc</span>
+                                    <span class="col-6 col-lg-6 bonds_grid_content_bottom_percent">@item.BondsDeposit%</span>
+                                </div>
+                                <div class="row">
+                                    <div class="progress fw">
+                                        <div class="progress-bar" style="width:@(item.BondsDeposit.Value)%"></div>
+                                    </div>
                                 </div>
                             </div>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyNowModal">Mua ngay</button>
                         </div>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyNowModal">Mua ngay</button>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 bonds_grid">
-                    <div class="bonds_grid_img">
-                        <img class="img-fluid" src="assets/images/bonds.jpg" style="width: 100%;" alt="">
-                        <a href="#" class="readmore">Nhận thông tin <i class="fas fa-caret-right"></i></a>
-                    </div>
-                    <div class="bonds_grid_content">
-                        <div class="bonds_grid_content_top">
-                            <h4 class="bonds_title">Ibond_2020.15.10</h4>
-                            <p>Công ty cổ phẩn Đầu tư IDJ Việt Nam</p>
-                            <h2 class="percent">13%</h2>
-                            <p>Lãi suất năm | Kỳ hạn 3 năm</p>
-                        </div>
-                        <div class="bonds_grid_content_center">
-                            <p>Trả lãi: 3 tháng / lần</p>
-                            <p>Ngày phát hành: 24/08/2020</p>
-                        </div>
-                        <div class="bonds_grid_content_bottom fw">
-                            <div class="row">
-                                <span class="col-6 col-lg-6 bonds_grid_content_bottom_text">Đang nhận cọc</span>
-                                <span class="col-6 col-lg-6 bonds_grid_content_bottom_percent">99%</span>
-                            </div>
-                            <div class="row">
-                                <!-- <input type="range" min="1" max="100" value="70" class="range_slider_input"
-                    disabled style="width: 70%;"> -->
-                                <div class="progress fw">
-                                    <div class="progress-bar" style="width:99%"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyNowModal">Mua ngay</button>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 bonds_grid">
-                    <div class="bonds_grid_img">
-                        <img class="img-fluid" src="assets/images/bonds.jpg" style="width: 100%;" alt="">
-                        <a href="#" class="readmore">Nhận thông tin <i class="fas fa-caret-right"></i></a>
-                    </div>
-                    <div class="bonds_grid_content">
-                        <div class="bonds_grid_content_top">
-                            <h4 class="bonds_title">Ibond_2020.16.10</h4>
-                            <p>Công ty cổ phẩn Đầu tư IDJ Việt Nam</p>
-                            <h2 class="percent">13%</h2>
-                            <p>Lãi suất năm | Kỳ hạn 3 năm</p>
-                        </div>
-                        <div class="bonds_grid_content_center">
-                            <p>Trả lãi: 3 tháng / lần</p>
-                            <p>Ngày phát hành: 24/08/2020</p>
-                        </div>
-                        <div class="bonds_grid_content_bottom fw">
-                            <div class="row">
-                                <span class="col-6 col-lg-6 bonds_grid_content_bottom_text">Đang nhận cọc</span>
-                                <span class="col-6 col-lg-6 bonds_grid_content_bottom_percent">93%</span>
-                            </div>
-                            <div class="row">
-                                <!-- <input type="range" min="1" max="100" value="70" class="range_slider_input"
-                    disabled style="width: 70%;"> -->
-                                <div class="progress fw">
-                                    <div class="progress-bar" style="width:93%"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buyNowModal">Mua ngay</button>
-                    </div>
-                </div>
+                }
+
                 <div class="modal fade" id="buyNowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -303,9 +240,9 @@
                                 <img class="img-fluid" src="@(Model.OrderProcess[i].BuyImage.Media.PublicUrl.Substring(1) ?? "")" alt="">
                             </div>
                             <div class="tutorial_step_text">
-                                <p>@Model.OrderProcess[i].LinkTitle1</p>
-                                <p>@Model.OrderProcess[i].LinkTitle2</p>
-                            </div>
+                                <a href="@Model.OrderProcess[i].Link1.Value"><p>@Model.OrderProcess[i].LinkTitle1</p></a>
+                                <a href="@Model.OrderProcess[i].Link2.Value"><p>@Model.OrderProcess[i].LinkTitle2</p></a>
+</div>
                         </div>
                     </div>
                 }

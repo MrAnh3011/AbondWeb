@@ -40,6 +40,10 @@ namespace MvcWeb.Models
         public IList<StringField> BodyDoyouKnow { get; set; }
 
 
+        [Region(Display = RegionDisplayMode.Full, Title = "Trái phiếu chào bán", ListTitle = "Trái phiếu chào bán", ListPlaceholder = "Trái phiếu chào bán")]
+        public IList<BondsInfo> lstBonds4Sale { get; set; }
+
+
         [Region(Display = RegionDisplayMode.Full, Title = "Quy trình đặt mua BG", ListTitle = "Quy trình đặt mua BG", ListPlaceholder = "Quy trình đặt mua BG")]
         public ImageField OrderProcessImg { get; set; }
 

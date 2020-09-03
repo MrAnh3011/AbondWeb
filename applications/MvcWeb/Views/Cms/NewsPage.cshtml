@@ -1,6 +1,6 @@
 ﻿@model MvcWeb.Models.NewsPage
 @{
-    ViewData["Title"] = "NewsPage";
+    ViewBag.Title = Model.Title
     Func<Piranha.Models.DynamicPost, Piranha.Extend.Blocks.HtmlBlock> GetFirstHtmlBlock = (post) =>
     {
         foreach (var block in post.Blocks)
@@ -18,7 +18,7 @@
     <img class="img-fluid" src="@(Model.BarnerNews.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt="">
     <h2 class="page_title">@Model.BarnerNews.Title</h2>
 </div>
-
+<a href="D:\Projects\Abond\Abond Web\piranha.core\applications\MvcWeb\Views\Cms\NewsPage.cshtml">D:\Projects\Abond\Abond Web\piranha.core\applications\MvcWeb\Views\Cms\NewsPage.cshtml</a>
 <section id="content" class="fw">
     <div class="container">
         <section id="news_slide">
