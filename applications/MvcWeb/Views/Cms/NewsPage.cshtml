@@ -1,31 +1,18 @@
 ﻿@model MvcWeb.Models.NewsPage
 @{
-    ViewBag.Title = Model.Title
-    Func<Piranha.Models.DynamicPost, Piranha.Extend.Blocks.HtmlBlock> GetFirstHtmlBlock = (post) =>
-    {
-        foreach (var block in post.Blocks)
-        {
-            if (block is Piranha.Extend.Blocks.HtmlBlock)
-            {
-                return (Piranha.Extend.Blocks.HtmlBlock)block;
-            }
-        }
-        return null;
-    };
+    ViewBag.Title = Model.Title;
 }
 
 <div id="page_title" class="fw">
     <img class="img-fluid" src="@(Model.BarnerNews.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt="">
     <h2 class="page_title">@Model.BarnerNews.Title</h2>
 </div>
-<a href="D:\Projects\Abond\Abond Web\piranha.core\applications\MvcWeb\Views\Cms\NewsPage.cshtml">D:\Projects\Abond\Abond Web\piranha.core\applications\MvcWeb\Views\Cms\NewsPage.cshtml</a>
 <section id="content" class="fw">
     <div class="container">
         <section id="news_slide">
             <div class="news_slide">
                 @foreach (var item in Model.SlidePost)
                 {
-                    string excerpt = item.Post.Excerpt ?? "";
                     <div class="item">
                         <div class="news_image">
                             <img class="img-fluid" src="@(item.Post.PrimaryImage.Media.PublicUrl.Substring(1)??"")" alt="">
@@ -39,14 +26,7 @@
                                     <h2 class="news_slide_title">@item.Post.Title</h2>
                                 </a>
                                 <p class="news_slide_excerpt">
-                                    @if (excerpt.Length > 60)
-                                    {
-                                        @(excerpt.Substring(0, 60) + "...")
-                                    }
-                                    else
-                                    {
-                                        @excerpt
-                                    }
+                                    @Html.Raw(item.Post.Excerpt)
                                 </p>
                                 <a href="@item.Post.Permalink" class="link">Xem chi tiết</a>
                             </div>
@@ -76,7 +56,7 @@
                                         </h4>
                                     </a>
                                     <p class="news_excerpt">
-                                        @(Html.Raw(GetFirstHtmlBlock(item)?.Body ?? "").ToString().Substring(3,100) + " ...")
+                                        @Html.Raw(item.Excerpt)
                                     </p>
                                 </div>
                             </div>
@@ -103,17 +83,7 @@
                                             </h6>
                                         </a>
                                         <p class="most_view_excerpt">
-                                            @{
-                                                string excerpt = item.Post.Excerpt ?? "";
-                                                if (excerpt.Length < 60)
-                                                {
-                                                    @excerpt
-                                                }
-                                                else
-                                                {
-                                                    @(excerpt.Substring(0, 60) + "...")
-                                                }
-                                            }
+                                            @Html.Raw(item.Post.Excerpt)
                                         </p>
                                     </div>
                                 </div>

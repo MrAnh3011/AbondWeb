@@ -299,7 +299,7 @@
             HideLoadingScreen();
             return;
         }
-        let vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+        let vnf_regex = /^(0|\+84)(\s|\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\d)(\s|\.)?(\d{3})(\s|\.)?(\d{3})$/;
         if (vnf_regex.test(phone) == false) {
             swal("Lỗi", "Số điện thoại bạn vừa nhập không hợp lệ.", "error");
             HideLoadingScreen();

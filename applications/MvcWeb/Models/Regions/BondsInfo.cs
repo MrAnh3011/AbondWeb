@@ -28,6 +28,9 @@ namespace MvcWeb.Models.Regions
         [Field(Options = FieldOption.HalfWidth)]
         public DocumentField BondsDoc { get; set; }
 
+        [Field(Options = FieldOption.HalfWidth)]
+        public CheckBoxField IsHot { get; set; }
+
         [Field]
         public HtmlField BondsDescription2 { get; set; }
 

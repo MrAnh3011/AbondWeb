@@ -162,6 +162,12 @@
                     <div class="col-12 col-md-6 col-lg-4 bonds_grid">
                         <div class="bonds_grid_img">
                             <img class="img-fluid" src="@(item.BondsImage.Media.PublicUrl.Substring(1)?? "")" style="width: 100%;" alt="">
+                            <div class="item-card">
+                                @if (item.IsHot.Value == true)
+                                {
+                                    <img src="~/assets/images/sale.png" />
+                                }
+                            </div>
                             <a href="@item.BondsDoc.Media.PublicUrl.Substring(1)" class="readmore">Nhận thông tin <i class="fas fa-caret-right"></i></a>
                         </div>
                         <div class="bonds_grid_content">
@@ -331,7 +337,7 @@
                     @foreach (var item in Model.lstLogo)
                     {
                         <div class="item">
-                            <a href="@item.Title.Value"><img class="img-fluid" src="@(item.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt=""></a>
+                            <a href="@item.Title.Value" target="_blank"><img class="img-fluid" src="@(item.ImageBanner.Media.PublicUrl.Substring(1)??"")" alt=""></a>
                         </div>
                     }
                 </div>
@@ -339,4 +345,4 @@
         </div>
     </section>
 </section>
-<div style="display:none" id="#mailReceiver">@Model.Receiver</div>
+<span style="display:none" id="mailReceiver">@Model.Receiver</span>

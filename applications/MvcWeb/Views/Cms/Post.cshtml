@@ -6,8 +6,10 @@
 
 <div id="page_title" class="fw">
     <img class="img-fluid" src="@(Model.PrimaryImage.Media.PublicUrl.Substring(1)??"")" alt="">
-    <h2 class="page_title">@Model.Title</h2>
-    <p class="publish_at">@Model.Created.ToString("dd/MM/yyy h:mm")</p>
+    <div>
+        <h2 class="page_title">@Model.Title</h2>
+        <p class="publish_at">@Model.Created.ToString("dd/MM/yyy h:mm")</p>
+    </div>
 </div>
 
 <section id="content" class="fw">
@@ -49,7 +51,6 @@
                             <div class="most_view_list">
                                 @foreach (var item in Model.lstRelatedPost)
                                 {
-                                    var excerpt = item.Post.Excerpt;
                                     <div class="row most_article ">
                                         <div class="col-sm-4 col-lg-2 pad0">
                                             <a href="@item.Post.Permalink">
@@ -64,14 +65,7 @@
                                                 </h6>
                                             </a>
                                             <p class="most_view_excerpt">
-                                                @if (excerpt.Length > 60)
-                                                {
-                                                    @(excerpt.Substring(0, 60) + "...")
-                                                }
-                                                else
-                                                {
-                                                    @excerpt
-                                                }
+                                                @Html.Raw(item.Post.Excerpt)
                                             </p>
                                         </div>
                                     </div>
@@ -97,17 +91,7 @@
                                             </h6>
                                         </a>
                                         <p class="most_view_excerpt">
-                                            @{
-                                                string excerpt = item.Post.Excerpt ?? "";
-                                                if (excerpt.Length < 60)
-                                                {
-                                                    @excerpt
-                                                }
-                                                else
-                                                {
-                                                    @(excerpt.Substring(0, 60) + "...")
-                                                }
-                                            }
+                                            @Html.Raw(item.Post.Excerpt)
                                         </p>
                                     </div>
                                 </div>
