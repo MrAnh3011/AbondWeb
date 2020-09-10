@@ -567,7 +567,25 @@ a:hover {
   margin-bottom: 30px;
 }
 
-#bonds .bonds_row {
+#bonds .bonds_row .modal .modal-dialog .modal-content{
+    background: #337ab7;
+    color: white;
+}
+
+#bonds .bonds_row .modal .modal-dialog .close {
+    color: #fff;
+    font-size: 40px;
+}
+
+#bonds .bonds_row .modal .modal-dialog .modal-content table{
+    color: white;
+}
+
+#bonds .bonds_row .modal .modal-dialog .modal-content table td,th{
+    border: 1px solid #dee2e6;
+}
+
+#bonds .bonds_row .bonds_grid_content {
   text-align: center;
   color: #000;
 }

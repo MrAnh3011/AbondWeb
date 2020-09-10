@@ -26,10 +26,10 @@ namespace MvcWeb.Models.Regions
         public StringField BondsDeposit { get; set; }
 
         [Field(Options = FieldOption.HalfWidth)]
-        public DocumentField BondsDoc { get; set; }
-
-        [Field(Options = FieldOption.HalfWidth)]
         public CheckBoxField IsHot { get; set; }
+
+        [Field]
+        public HtmlField BondsPopup { get; set; }
 
         [Field]
         public HtmlField BondsDescription2 { get; set; }
