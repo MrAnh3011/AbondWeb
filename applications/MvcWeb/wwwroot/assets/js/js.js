@@ -189,9 +189,10 @@
         const DayName = ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
         let topHour = new Date().getHours();
         let topMinutes = new Date().getMinutes();
+        if (topMinutes.toString().length < 2) topMinutes = "0" + topMinutes;
         let topDay = DayName[new Date().getDay()];
         let topDate = new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear();
-        let topTimeStr = topHour + ":" + topMinutes + " - " + topDay + ", " + topDate;
+        let topTimeStr = topHour + " : " + topMinutes + " - " + topDay + ", " + topDate;
 
         $('#datetime-barner').text(topTimeStr);
     };

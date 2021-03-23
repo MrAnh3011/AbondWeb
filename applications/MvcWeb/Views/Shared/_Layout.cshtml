@@ -38,6 +38,26 @@
     <div id="wrapper">
         <header id="header">
             <partial name="Partial/_Menu.cshtml" />
+            <div id="ace-crm-script-tag-bound">
+                <script type="text/javascript">
+                    var aceCrmLoaded = false;
+                    var aceCrmDomain = 'https://acecrm.info/';
+                    var aceParrams = { client_id: 5237286, website_id: 537 };
+                    (function () {
+                        if (!aceCrmLoaded) {
+                            var ga = document.createElement('script');
+                            ga.type = 'text/javascript';
+                            ga.id = "aceCrmScriptTag";
+                            ga.async = true;
+                            ga.src = aceCrmDomain + "assets/js/ace-crm-script.js";
+                            var s = document.getElementsByTagName('script');
+                            s[0].parentNode.insertBefore(ga, s[0]);
+                        } else {
+                            new aceCrm(aceParrams).run();
+                        }
+                    })();
+                </script>
+            </div>
         </header>
 
         @RenderBody()
@@ -55,7 +75,7 @@
                                 </a>
                             </h1>
                             <p><i class="fas fa-home"></i> Tầng 3 Grand Plaza, 117 Trần Duy Hưng, Cầu Giấy, Hà Nội </p>
-                            <p><i class="fas fa-paper-plane"></i> bondservice@apec.com.vn</p>
+                            <p><i class="fas fa-paper-plane"></i> abondservice@abond.com.vn</p>
                             <p><i class="fas fa-phone-alt"></i> 0963.51.3355</p>
                             <p>
                                 <a href="https://www.facebook.com/TraiphieuABond/"><i class="fab fa-facebook-f"></i></a>&emsp;<a href="/#"><i class="fab fa-twitter"></i></a>&emsp;<a href="/#"><i class="fab fa-youtube"></i></a>
@@ -64,7 +84,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 footer_contact">
 
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.413952781207!2d105.80336321440706!3d21.01611649358687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab60a007e1a5%3A0x6923f99656724687!2zQ8O0bmcgVHkgQ-G7lSBQaOG6p24gQ2jhu6luZyBLaG_DoW4gQ2jDonUgw4EgVGjDoWkgQsOsbmggRMawxqFuZw!5e0!3m2!1svi!2s!4v1599548962503!5m2!1svi!2s"
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.634462053445!2d105.79630311283228!3d21.007284957822673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab95bd37c61f%3A0x6ec553a57ae27350!2sGrand%20Plaza%20Hanoi%20Hotel!5e0!3m2!1svi!2s!4v1602733848765!5m2!1svi!2s"
                                 width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
                     </div>

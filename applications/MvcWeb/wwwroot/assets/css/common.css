@@ -403,6 +403,10 @@ a:hover {
   border-right: 2px solid #ededed;
 }
 
+#intro .intro:hover .intro_info h4 {
+    color: #254099;
+}
+
 #intro .intro:last-child {
     border: none;
 }
@@ -450,6 +454,10 @@ a:hover {
   text-transform: uppercase;
   max-width: 20%;
   padding: 0;
+}
+
+#why .why_grid:hover h5 {
+    color: #254099;
 }
 
 #why .why_grid h5 {
@@ -506,10 +514,12 @@ a:hover {
 #why_choose .why_choose .why_choose_row_top .why_choose_right h2 {
   font-weight: bold;
   font-size: 28px;
+  line-height: 1.6;
 }
 
 #why_choose .why_choose .why_choose_row_top .why_choose_right p {
   font-size: 14px;
+  line-height: 1.7;
 }
 
 #why_choose .why_choose .why_choose_row_top .why_choose_right .link {
@@ -537,6 +547,7 @@ a:hover {
   font-weight: bold;
   font-size: 28px;
   color: #254099;
+  line-height: 1.6;
 }
 
 #why_choose .why_choose .why_choose_row_bot .why_choose_left ul li {
