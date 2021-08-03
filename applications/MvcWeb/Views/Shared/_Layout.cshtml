@@ -12,6 +12,7 @@
     }
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="7haKf27Zg3zCZ7m0UpfSE3qCzfltMhA7GKqDpZ3448E" />
 
     <!-- CSS -->
     <link rel="shortcut icon" type="image/png" href="/favicon.png" />
@@ -23,6 +24,38 @@
     <link rel="stylesheet" href="~/assets/css/common.css">
     <title>@ViewBag.Title</title>
 
+    <div id="ace-crm-script-tag-bound">
+        <script type="text/javascript">
+            var aceCrmLoaded = false;
+            var aceCrmDomain = 'https://acecrm.info/';
+            var aceParrams = { client_id: 5237286, website_id: 537 };
+            (function () {
+                if (!aceCrmLoaded) {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.id = "aceCrmScriptTag";
+                    ga.async = true;
+                    ga.src = aceCrmDomain + "assets/js/ace-crm-script.js";
+                    var s = document.getElementsByTagName('script');
+                    s[0].parentNode.insertBefore(ga, s[0]);
+                } else {
+                    new aceCrm(aceParrams).run();
+                }
+            })();
+        </script>
+    </div>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NKL326N');</script>
+    <!-- End Google Tag Manager -->
 
     @if (Model is Piranha.Models.IMeta)
     {
@@ -38,26 +71,6 @@
     <div id="wrapper">
         <header id="header">
             <partial name="Partial/_Menu.cshtml" />
-            <div id="ace-crm-script-tag-bound">
-                <script type="text/javascript">
-                    var aceCrmLoaded = false;
-                    var aceCrmDomain = 'https://acecrm.info/';
-                    var aceParrams = { client_id: 5237286, website_id: 537 };
-                    (function () {
-                        if (!aceCrmLoaded) {
-                            var ga = document.createElement('script');
-                            ga.type = 'text/javascript';
-                            ga.id = "aceCrmScriptTag";
-                            ga.async = true;
-                            ga.src = aceCrmDomain + "assets/js/ace-crm-script.js";
-                            var s = document.getElementsByTagName('script');
-                            s[0].parentNode.insertBefore(ga, s[0]);
-                        } else {
-                            new aceCrm(aceParrams).run();
-                        }
-                    })();
-                </script>
-            </div>
         </header>
 
         @RenderBody()
@@ -74,7 +87,8 @@
                                          alt="Abond">
                                 </a>
                             </h1>
-                            <p><i class="fas fa-home"></i> Tầng 3 Grand Plaza, 117 Trần Duy Hưng, Cầu Giấy, Hà Nội </p>
+                            <p><i class="fas fa-home"></i> Hội sở: Tầng 3 Grand Plaza, 117 Trần Duy Hưng, Cầu Giấy, Hà Nội </p>
+                            <p><i class="fas fa-home"></i> Hồ Chí Minh: Lầu 2 Tòa nhà Coteccons 236/6 Điện Biên Phủ, Phường 17, Q Bình Thạnh, TP HCM </p>
                             <p><i class="fas fa-paper-plane"></i> abondservice@abond.com.vn</p>
                             <p><i class="fas fa-phone-alt"></i> 0963.51.3355</p>
                             <p>
@@ -97,6 +111,14 @@
             </div>
         </footer>
     </div>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKL326N"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
 
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>

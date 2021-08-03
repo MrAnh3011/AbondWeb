@@ -144,7 +144,10 @@
                         <a href="@Model.DoYouKnow2.Link.Value" class="link">Xem chi tiết</a>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-6 why_choose_right">
-                        <img class="img-fluid" src="@(Model.DoYouKnow2.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">
+                        @*<img class="img-fluid" src="@(Model.DoYouKnow2.Image.Media.PublicUrl.Substring(1) ?? "")" alt="">*@
+                        <iframe src="@Model.DoYouKnow2.LinkVideo.Value"
+                                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
+                            picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>

@@ -92,10 +92,11 @@ namespace MvcWeb.Controllers
 
         [HttpGet]
         [Route("newspage")]
-        public async Task<IActionResult> NewsPage(Guid id, bool startpage = false, bool draft = false)
+        public async Task<IActionResult> NewsPage(Guid id, int? year = null, int? month = null, int? page = null,
+            Guid? category = null, Guid? tag = null)
         {
-            var model = await _loader.GetPageAsync<NewsPage>(id, HttpContext.User, draft);
-            model.Archive = await _api.Archives.GetByIdAsync(id);
+            var model = await _api.Pages.GetByIdAsync<NewsPage>(id);
+            model.Archive = await _api.Archives.GetByIdAsync(id, page, category, tag, year, month, 6);
 
             return View(model);
         }
